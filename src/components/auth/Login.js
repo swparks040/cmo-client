@@ -1,6 +1,8 @@
 import { useRef, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import { loginUser } from "../../managers/AuthManager";
+import { useNavigate } from "react-router-dom";
+import { loginUser } from "../managers/AuthManager";
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
 
 export const Login = ({ setToken }) => {
   const username = useRef();
@@ -26,5 +28,30 @@ export const Login = ({ setToken }) => {
     });
   };
 
-  return <>Bootstrap Login Screen</>;
-};
+  return (
+    <Form onSubmit={handleLogin}>
+      <Form.Group className="mb-3" controlId="formBasicEmail">
+        <Form.Label>Username</Form.Label>
+        <Form.Control type="username" placeholder="Enter username" />
+        <Form.Text className="text-muted" ref={username}>
+          We'll never share your email with anyone else.
+        </Form.Text>
+      </Form.Group>
+
+      <Form.Group className="mb-3" controlId="formBasicPassword">
+        <Form.Label>Password</Form.Label>
+        <Form.Control type="password" placeholder="Password" ref={password} />
+      </Form.Group>
+
+      <Button variant="primary" to="/register">Cancel</Button>
+      <Button variant="primary" type="submit">
+        Log In
+      </Button>
+        {
+          isUnsuccessful ? <p className="help is-danger">Username or password not valid</p> : ''
+        }
+    </Form>
+  );
+}
+
+export default Login;

@@ -1,7 +1,7 @@
 import { useRef } from "react"
-import { Link } from "react-router-dom"
+//import { Link } from "react-router-dom"
 import { useNavigate } from "react-router-dom"
-import { registerUser } from "../../managers/AuthManager"
+import { registerUser } from "../managers/AuthManager"
 
 export const Register = ({setToken}) => {
   const firstName = useRef()
@@ -39,5 +39,7 @@ export const Register = ({setToken}) => {
     }
   }
 
-  return <>Bootstrap Registration Screen</>;
+  return <>Bootstrap Registration Screen 
+  <div>onSubmit={handleRegister}</div>
+  </>;
 };
