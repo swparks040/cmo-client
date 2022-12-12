@@ -24,17 +24,15 @@ export const NavBar = ({ token, setToken }) => {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link href="/">Home</Nav.Link>
-            <Nav.Link href="#link">Link</Nav.Link>
-            <NavDropdown className="me-auto" title="Dropdown" id="basic-nav-dropdown">
-              <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2">
-                Another action
+            <Nav.Link href="/">Dashboard</Nav.Link>
+            <NavDropdown className="me-auto" title="Portals" id="basic-nav-dropdown">
+              <NavDropdown.Item href="/ptoportal">PTO Request</NavDropdown.Item>
+              <NavDropdown.Item href="/familyportal">
+                Update Family
               </NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item href="#action/3.4">
-                Separated link
+              <NavDropdown.Item href="/promoportal">Promotion</NavDropdown.Item>
+              <NavDropdown.Item href="/evalportal">
+                Evaluations
               </NavDropdown.Item>
             </NavDropdown>
             <Nav.Link>
