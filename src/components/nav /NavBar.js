@@ -26,9 +26,9 @@ export const NavBar = ({ token, setToken }) => {
           <Nav className="me-auto">
             <Nav.Link href="/">Dashboard</Nav.Link>
             <NavDropdown className="me-auto" title="Portals" id="basic-nav-dropdown">
-              <NavDropdown.Item href="/ptoportal">PTO Request</NavDropdown.Item>
+              <NavDropdown.Item href="/ptoportal">PTO</NavDropdown.Item>
               <NavDropdown.Item href="/familyportal">
-                Update Family
+                Family
               </NavDropdown.Item>
               <NavDropdown.Item href="/promoportal">Promotion</NavDropdown.Item>
               <NavDropdown.Item href="/evalportal">

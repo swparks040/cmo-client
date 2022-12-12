@@ -53,8 +53,11 @@ export const Register = ({ setToken }) => {
               <Card.Body>
                 <div className="mb-3 mt-md-4">
                   <h2 className="fw-bold mb-2 text-center text-uppercase ">
-                    Logo
+                    Welocme to the Nailed IT family!
                   </h2>
+                  <h4 className="fw-bold mb-2 text-center text-uppercase ">
+                    New Employee Account
+                  </h4>
                   <div className="mb-3">
                     <Form onSubmit={handleRegister}>
                       <Form.Group className="mb-3" controlId="userName">
@@ -66,7 +69,6 @@ export const Register = ({ setToken }) => {
                           placeholder="Enter Username"
                         />
                       </Form.Group>
-
                       <Form.Group className="mb-3" controlId="firstName">
                         <Form.Label className="text-center">
                           First Name
@@ -76,7 +78,6 @@ export const Register = ({ setToken }) => {
                           placeholder="Enter First Name"
                         />
                       </Form.Group>
-
                       <Form.Group className="mb-3" controlId="lastName">
                         <Form.Label className="text-center">
                           Last Name
@@ -86,20 +87,72 @@ export const Register = ({ setToken }) => {
                           placeholder="Enter Last Name"
                         />
                       </Form.Group>
-
-                      <Form.Group className="mb-3" controlId="formBasicEmail">
+                      <Form.Group className="mb-3" controlId="basicEmail">
                         <Form.Label className="text-center">
                           Email address
                         </Form.Label>
                         <Form.Control type="email" placeholder="Enter email" />
                       </Form.Group>
-
                       <Form.Group
                         className="mb-3"
                         controlId="formBasicPassword"
                       >
                         <Form.Label>Password</Form.Label>
-                        <Form.Control type="password" placeholder="Password" />
+                        <Form.Control
+                          type="password"
+                          placeholder="Enter Password"
+                        />
+                      </Form.Group>
+                      <Form.Group
+                        className="mb-3"
+                        controlId="formBasicPassword"
+                      >
+                        <Form.Label>Confirm Password</Form.Label>
+                        <Form.Control type="password" placeholder="Re-Enter Password" />
+                      </Form.Group>
+                      <h4 className="fw-bold mb-2 text-center text-uppercase ">
+                        Employee Information
+                      </h4>
+                      <Form.Group className="mb-3" controlId="jobPosition">
+                        <Form.Label className="text-center">
+                          Job Position
+                        </Form.Label>
+                        <Form.Control
+                          type="text"
+                          placeholder="Enter Job Position"
+                        />
+                      </Form.Group>
+                      <Form.Group className="mb-3" controlId="salary">
+                        <Form.Label className="text-center">Salary</Form.Label>
+                        <Form.Control type="text" placeholder="Enter Salary" />
+                      </Form.Group>
+                      <Form.Group className="mb-3" controlId="birthday">
+                        <Form.Label className="text-center">
+                          Birthday
+                        </Form.Label>
+                        <Form.Control type="date" />
+                      </Form.Group>
+                      <Form.Group className="mb-3" controlId="dateHired">
+                        <Form.Label className="text-center">
+                          Date Hired
+                        </Form.Label>
+                        <Form.Control type="date" />
+                      </Form.Group>
+                      <Form.Group className="mb-3" controlId="dateEvaluated">
+                        <Form.Label className="text-center">
+                          Date Evaluated
+                        </Form.Label>
+                        <Form.Control type="date" />
+                      </Form.Group>
+                      <Form.Group className="mb-3" controlId="datePromoted">
+                        <Form.Label className="text-center">
+                          Date Promoted
+                        </Form.Label>
+                        <Form.Control type="date" />
+                      </Form.Group>
+                      <Form.Group className="mb-3" controlId="imageUrl">
+                        <Form.Label className="text-center">Image</Form.Label>
+                        <Form.Control type="text" placeholder="Enter Staff Image" />
                       </Form.Group>
                       <div className="d-grid">
                         <Button variant="primary" type="submit">
