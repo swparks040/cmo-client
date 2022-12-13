@@ -14,8 +14,15 @@ export const Register = ({ setToken }) => {
   const lastName = useRef();
   const email = useRef();
   const username = useRef();
-  const is_staff = useRef();
+  const isStaff = useRef();
   const password = useRef();
+  const jobPosition = useRef();
+  const salary = useRef();
+  const birthday = useRef();
+  const dateHired = useRef();
+  const dateEvaluated = useRef();
+  const datePromoted = useRef();
+  const imageUrl = useRef();
   const verifyPassword = useRef();
   const passwordDialog = useRef();
   const navigate = useNavigate();
@@ -30,7 +37,14 @@ export const Register = ({ setToken }) => {
         last_name: lastName.current.value,
         email: email.current.value,
         password: password.current.value,
-        is_staff: is_staff.current.value,
+        is_staff: isStaff.current.value,
+        job_position: jobPosition.current.value,
+        salary: salary.current.value,
+        birthday: birthday.current.value,
+        date_hired: dateHired.current.value,
+        date_evaluated: dateEvaluated.current.value,
+        date_promoted: datePromoted.current.value,
+        profile_image_url: imageUrl.current.value,
       };
 
       registerUser(newUser).then((res) => {
@@ -60,7 +74,7 @@ export const Register = ({ setToken }) => {
                   </h4>
                   <div className="mb-3">
                     <Form onSubmit={handleRegister}>
-                      <Form.Group className="mb-3" controlId="userName">
+                      <Form.Group className="mb-3" controlId="username">
                         <Form.Label className="text-center">
                           Username
                         </Form.Label>
@@ -87,28 +101,25 @@ export const Register = ({ setToken }) => {
                           placeholder="Enter Last Name"
                         />
                       </Form.Group>
-                      <Form.Group className="mb-3" controlId="basicEmail">
+                      <Form.Group className="mb-3" controlId="email">
                         <Form.Label className="text-center">
                           Email address
                         </Form.Label>
                         <Form.Control type="email" placeholder="Enter email" />
                       </Form.Group>
-                      <Form.Group
-                        className="mb-3"
-                        controlId="formBasicPassword"
-                      >
+                      <Form.Group className="mb-3" controlId="password">
                         <Form.Label>Password</Form.Label>
                         <Form.Control
                           type="password"
                           placeholder="Enter Password"
                         />
                       </Form.Group>
-                      <Form.Group
-                        className="mb-3"
-                        controlId="formBasicPassword"
-                      >
+                      <Form.Group className="mb-3" controlId="password">
                         <Form.Label>Confirm Password</Form.Label>
-                        <Form.Control type="password" placeholder="Re-Enter Password" />
+                        <Form.Control
+                          type="password"
+                          placeholder="Re-Enter Password"
+                        />
                       </Form.Group>
                       <h4 className="fw-bold mb-2 text-center text-uppercase ">
                         Employee Information
@@ -152,7 +163,10 @@ export const Register = ({ setToken }) => {
                       </Form.Group>
                       <Form.Group className="mb-3" controlId="imageUrl">
                         <Form.Label className="text-center">Image</Form.Label>
-                        <Form.Control type="text" placeholder="Enter Staff Image" />
+                        <Form.Control
+                          type="text"
+                          placeholder="Enter Staff Image"
+                        />
                       </Form.Group>
                       <div className="d-grid">
                         <Button variant="primary" type="submit">
