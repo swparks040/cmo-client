@@ -40,3 +40,12 @@ export const deleteUser = (userId) => {
     method: "DELETE",
   });
 };
+
+export const getCurrentUser = () => {
+  return fetch("http://localhost:8000/cmousers/current", {
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Token ${localStorage.getItem("auth_token")}`,
+    },
+  }).then((res) => res.json());
+};

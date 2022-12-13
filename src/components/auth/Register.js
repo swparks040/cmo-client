@@ -37,6 +37,7 @@ export const Register = ({ setToken }) => {
         last_name: lastName.current.value,
         email: email.current.value,
         password: password.current.value,
+        verify_password: verifyPassword.current.value,
         is_staff: isStaff.current.value,
         job_position: jobPosition.current.value,
         salary: salary.current.value,
@@ -80,7 +81,7 @@ export const Register = ({ setToken }) => {
                         </Form.Label>
                         <Form.Control
                           type="text"
-                          placeholder="Enter Username"
+                          placeholder="Enter Username" 
                         />
                       </Form.Group>
                       <Form.Group className="mb-3" controlId="firstName">
@@ -114,7 +115,7 @@ export const Register = ({ setToken }) => {
                           placeholder="Enter Password"
                         />
                       </Form.Group>
-                      <Form.Group className="mb-3" controlId="password">
+                      <Form.Group className="mb-3" controlId="verifyPassword">
                         <Form.Label>Confirm Password</Form.Label>
                         <Form.Control
                           type="password"
