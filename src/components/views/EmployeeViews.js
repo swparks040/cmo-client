@@ -1,30 +1,18 @@
 import { Route, Routes } from "react-router-dom";
-import { Login } from "../auth/Login";
-import { Register } from "../auth/Register";
 import { Dashboard } from "../dashboard/Dashboard";
-import NavBar from "../nav /NavBar";
-import { Authorized } from "../views/Authorized";
+import { MessageForm } from "../messages/MessageForm";
+import { AllMessages } from "../messages/MessagesAll";
+import { PTOForm } from "../pto/RequestPTO";
 
-export const EmployeeViews = ({ token, setToken, loggedInUser }) => {
+export const EmployeeViews = () => {
   return (
     <>
-      {token ? (
-        <NavBar
-          token={token}
-          setToken={setToken}
-          loggedInUser={loggedInUser}
-        ></NavBar>
-      ) : null}
       <Routes>
-        <Route path="/" element={<Dashboard token={token} />} />
-        <Route path="/login" element={<Login setToken={setToken} />} />
-        <Route path="/register" element={<Register setToken={setToken} />} />
-        {/* <Route path="/ptoportal" element={<PTODetails setToken={setToken} />} /> */}
-        {/* <Route path="/familyportal" element={<FamilyDetails setToken={setToken} />} /> */}
-        {/* <Route path="/promoportal" element={<PromoDetails setToken={setToken} />} /> */}
-        {/* <Route path="/evalportal" element={<EvalDetails setToken={setToken} />} /> */}
-        {/* <Route path="/newemployeeform" element={<NewEmployeeForm setToken={setToken} />} /> */}
-        <Route element={<Authorized token={token} />} />
+        <Route path="/" element={<Dashboard />} />
+        <Route path="/messages" element={<AllMessages />} />
+        <Route path="/messages/create" element={<MessageForm />} />
+        <Route path="/pto/create" element={<PTOForm />} />
+
       </Routes>
     </>
   );

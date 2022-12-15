@@ -20,7 +20,7 @@ export const Login = ({ setToken }) => {
 
     loginUser(user).then((res) => {
       if ("valid" in res && res.valid) {
-        setToken(res.token);
+        localStorage.setItem("auth_token", JSON.stringify(res));
         navigate("/");
       } else {
         setisUnsuccessful(true);

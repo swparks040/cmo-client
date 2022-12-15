@@ -5,7 +5,7 @@ import Col from "react-bootstrap/Col";
 import Card from "react-bootstrap/Card";
 import { useNavigate } from "react-router-dom";
 
-export const Dashboard = ({ token }) => {
+export const Dashboard = () => {
   const navigate = useNavigate();
 
   return (
@@ -14,11 +14,11 @@ export const Dashboard = ({ token }) => {
         <Col>
           <Card>
             <Card.Body>
-              <Card.Title>PTO Portal</Card.Title>
+              <Card.Title>PTO Balance</Card.Title>
               <Card.Text>
-                Possible doughnut chart for PTO hours or responsive text...
+                "You have daysRemaining days of daysTotal days of PTO remaining."
               </Card.Text>
-              <Button onClick={() => navigate(`/ptoportal`)}>
+              <Button onClick={() => navigate(`/pto/create`)}>
                 Request PTO
               </Button>
             </Card.Body>
@@ -30,7 +30,7 @@ export const Dashboard = ({ token }) => {
                 Text for "You have familyMembers family members declared on your
                 account."
               </Card.Text>
-              <Button onClick={() => navigate(`/familyportal`)}>
+              <Button onClick={() => navigate(`/family`)}>
                 Update Family
               </Button>
             </Card.Body>
@@ -46,7 +46,7 @@ export const Dashboard = ({ token }) => {
                 Your last Promotion discussion was on 1/1/2021. You are eligible
                 for promotion on 1/1/2022.
               </Card.Text>
-              <Button onClick={() => navigate(`/promoportal`)}>
+              <Button onClick={() => navigate(`/promos`)}>
                 Discuss Promotion
               </Button>
             </Card.Body>
@@ -58,13 +58,29 @@ export const Dashboard = ({ token }) => {
                 Your last feedback session was on 1/1/2021. You are eligible for
                 feedback on 6/1/2022.
               </Card.Text>
-              <Button onClick={() => navigate(`/evalportal`)}>
+              <Button onClick={() => navigate(`/evals`)}>
                 Discuss Evaluation
               </Button>
             </Card.Body>
           </Card>
         </Col>
       </Row>
+      <Row>
+        <Col>
+          <Card>
+            <Card.Body>
+              <Card.Title>Messages Portal</Card.Title>
+              <Card.Text>
+                View your messages.
+              </Card.Text>
+              <Button onClick={() => navigate(`/messages`)}>
+                View Messages
+              </Button>
+            </Card.Body>
+          </Card>
+        </Col>
+      </Row>
     </>
+
   );
 };

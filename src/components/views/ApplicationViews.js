@@ -1,25 +1,18 @@
-import { useState } from "react"
-import { getCurrentUser } from "../managers/UserManager"
-import { AdminViews } from "./AdminViews"
-import { EmployeeViews } from "./EmployeeViews"
+import { Route, Routes } from "react-router-dom"
+import { Login } from "../auth/Login"
+import { Register } from "../auth/Register"
+import { Authorized } from "./Authorized"
+
+
 
 
 export const ApplicationViews = () => {
-    const [currentUser, setCurrentUser] = useState({
-        is_staff: true
-    })
-    getCurrentUser().then(setCurrentUser)
-  
-    if (currentUser.is_staff) {
-        return (
-            <AdminViews currentUser={currentUser} />
-        )
-    }
-    else {
-        return (
-            <EmployeeViews currentUser={currentUser} />
-        )
-    } 
-
+    return <>
+        <Routes>
+            <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<Register />} />
+            <Route path="/*" element={<Authorized />} >
+            </Route>
+        </Routes>
+    </>
 }
-
