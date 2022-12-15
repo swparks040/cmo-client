@@ -1,12 +1,18 @@
-// import React, { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import Button from "react-bootstrap/Button";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Card from "react-bootstrap/Card";
 import { useNavigate } from "react-router-dom";
+import { getPTObyUserId } from "../managers/PTOManager";
 
 export const Dashboard = () => {
   const navigate = useNavigate();
+  const [user, setUser] = useState({});
+  
+  useEffect(() => {
+    getPTObyUserId().then(setUser);
+  }, []);
 
   return (
     <>
@@ -16,8 +22,8 @@ export const Dashboard = () => {
             <Card.Body>
               <Card.Title>PTO Balance</Card.Title>
               <Card.Text>
-                "You have daysRemaining days of daysTotal days of PTO
-                remaining."
+                You have {user[0]?.days_remaining} days of {user[0]?.total_days} days of PTO
+                remaining. You have used {user[0]?.days_used} days.
               </Card.Text>
               <Button onClick={() => navigate(`/pto/create`)}>
                 Request PTO
