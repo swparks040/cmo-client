@@ -16,7 +16,8 @@ export const Dashboard = () => {
             <Card.Body>
               <Card.Title>PTO Balance</Card.Title>
               <Card.Text>
-                "You have daysRemaining days of daysTotal days of PTO remaining."
+                "You have daysRemaining days of daysTotal days of PTO
+                remaining."
               </Card.Text>
               <Button onClick={() => navigate(`/pto/create`)}>
                 Request PTO
@@ -30,9 +31,7 @@ export const Dashboard = () => {
                 Text for "You have familyMembers family members declared on your
                 account."
               </Card.Text>
-              <Button onClick={() => navigate(`/family`)}>
-                Update Family
-              </Button>
+              <Button onClick={() => navigate(`/family`)}>Update Family</Button>
             </Card.Body>
           </Card>
         </Col>
@@ -70,9 +69,7 @@ export const Dashboard = () => {
           <Card>
             <Card.Body>
               <Card.Title>Messages Portal</Card.Title>
-              <Card.Text>
-                View your messages.
-              </Card.Text>
+              <Card.Text>View your messages.</Card.Text>
               <Button onClick={() => navigate(`/messages`)}>
                 View Messages
               </Button>
@@ -81,6 +78,5 @@ export const Dashboard = () => {
         </Col>
       </Row>
     </>
-
   );
 };

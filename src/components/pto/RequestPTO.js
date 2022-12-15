@@ -20,7 +20,6 @@ export const PTOForm = () => {
     publication_date: "",
     title: "",
     content: "",
-
   });
 
   const handleClickSaveMessage = (event) => {
@@ -32,7 +31,6 @@ export const PTOForm = () => {
       publication_date: message.publication_date,
       title: message.title,
       content: message.content,
-
     };
 
     if (message.category === 0) {
