@@ -38,8 +38,8 @@ export const getMessageById = (id) => {
   }).then((res) => res.json());
 };
 
-export const getMessageByUserId = (token) => {
-  return fetch(`http://localhost:8000/messages?user=${token}`, {
+export const getMessagesByCurrentUser = () => {
+  return fetch(`http://localhost:8000/messages?user=current`, {
     headers: {
       Authorization: `Token ${
         JSON.parse(localStorage.getItem("auth_token")).token

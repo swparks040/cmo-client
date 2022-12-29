@@ -8,8 +8,8 @@ export const getAllUsers = () => {
   }).then((res) => res.json());
 };
 
-export const getUserById = (id) => {
-  return fetch(`http://localhost:8000/cmousers/${id}`, {
+export const getUserById = () => {
+  return fetch(`http://localhost:8000/cmousers?user=current`, {
     headers: {
       Authorization: `Token ${
         JSON.parse(localStorage.getItem("auth_token")).token

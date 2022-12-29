@@ -1,4 +1,4 @@
-export const getPTObyUserId = () => {
+export const getPTObyCurrentUser = () => {
   return fetch(`http://localhost:8000/pto?user=current`, {
     headers: {
       Authorization: `Token ${

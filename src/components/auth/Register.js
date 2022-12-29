@@ -80,6 +80,7 @@ export const Register = ({ setToken }) => {
                           Username
                         </Form.Label>
                         <Form.Control
+                          ref={username}
                           type="text"
                           placeholder="Enter Username" 
                         />
@@ -89,6 +90,7 @@ export const Register = ({ setToken }) => {
                           First Name
                         </Form.Label>
                         <Form.Control
+                          ref={firstName}
                           type="text"
                           placeholder="Enter First Name"
                         />
@@ -98,6 +100,7 @@ export const Register = ({ setToken }) => {
                           Last Name
                         </Form.Label>
                         <Form.Control
+                        ref={lastName}
                           type="text"
                           placeholder="Enter Last Name"
                         />
@@ -106,11 +109,12 @@ export const Register = ({ setToken }) => {
                         <Form.Label className="text-center">
                           Email address
                         </Form.Label>
-                        <Form.Control type="email" placeholder="Enter email" />
+                        <Form.Control ref={email} type="email" placeholder="Enter email" />
                       </Form.Group>
                       <Form.Group className="mb-3" controlId="password">
                         <Form.Label>Password</Form.Label>
                         <Form.Control
+                          ref={password}
                           type="password"
                           placeholder="Enter Password"
                         />
@@ -118,6 +122,7 @@ export const Register = ({ setToken }) => {
                       <Form.Group className="mb-3" controlId="verifyPassword">
                         <Form.Label>Confirm Password</Form.Label>
                         <Form.Control
+                          ref={verifyPassword}
                           type="password"
                           placeholder="Re-Enter Password"
                         />
@@ -130,41 +135,43 @@ export const Register = ({ setToken }) => {
                           Job Position
                         </Form.Label>
                         <Form.Control
+                          ref={jobPosition}
                           type="text"
                           placeholder="Enter Job Position"
                         />
                       </Form.Group>
                       <Form.Group className="mb-3" controlId="salary">
                         <Form.Label className="text-center">Salary</Form.Label>
-                        <Form.Control type="text" placeholder="Enter Salary" />
+                        <Form.Control ref={salary} type="text" placeholder="Enter Salary" />
                       </Form.Group>
                       <Form.Group className="mb-3" controlId="birthday">
                         <Form.Label className="text-center">
                           Birthday
                         </Form.Label>
-                        <Form.Control type="date" />
+                        <Form.Control type="date" ref={birthday} />
                       </Form.Group>
                       <Form.Group className="mb-3" controlId="dateHired">
                         <Form.Label className="text-center">
                           Date Hired
                         </Form.Label>
-                        <Form.Control type="date" />
+                        <Form.Control type="date" ref={dateHired}/>
                       </Form.Group>
                       <Form.Group className="mb-3" controlId="dateEvaluated">
                         <Form.Label className="text-center">
                           Date Evaluated
                         </Form.Label>
-                        <Form.Control type="date" />
+                        <Form.Control type="date" ref={dateEvaluated}/>
                       </Form.Group>
                       <Form.Group className="mb-3" controlId="datePromoted">
                         <Form.Label className="text-center">
                           Date Promoted
                         </Form.Label>
-                        <Form.Control type="date" />
+                        <Form.Control type="date" ref={datePromoted} />
                       </Form.Group>
                       <Form.Group className="mb-3" controlId="imageUrl">
                         <Form.Label className="text-center">Image</Form.Label>
                         <Form.Control
+                          ref={imageUrl}
                           type="text"
                           placeholder="Enter Staff Image"
                         />

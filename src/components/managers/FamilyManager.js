@@ -18,7 +18,7 @@ export const getAllFamilyMembersById = (id) => {
   }).then((res) => res.json());
 };
 
-export const getFamilyMembersByUserId = () => {
+export const getFamilyMembersByCurrentUser = () => {
   return fetch(`http://localhost:8000/familymembers?user=current`, {
     headers: {
       Authorization: `Token ${
@@ -60,3 +60,16 @@ export const getAllFamilyMemberRelationshipsById = (id) => {
     },
   }).then((res) => res.json());
 };
+
+export const updateFamilyMember = (familyMember) => {
+  return fetch(`http://localhost:8000/familymembers/${familyMember.id}`, {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Token ${
+        JSON.parse(localStorage.getItem("auth_token")).token
+      }`,
+    },
+    body: JSON.stringify(familyMember),
+  }).then((res) => res.json());
+}

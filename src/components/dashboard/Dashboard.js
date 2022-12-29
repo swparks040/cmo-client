@@ -4,15 +4,64 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Card from "react-bootstrap/Card";
 import { useNavigate } from "react-router-dom";
-import { getPTObyUserId } from "../managers/PTOManager";
+import { getPTObyCurrentUser } from "../managers/PTOManager";
+import { getFamilyMembersByCurrentUser } from "../managers/FamilyManager";
+import { getUserById } from "../managers/UserManager";
+import { getMessagesByCurrentUser } from "../managers/MessageManager";
 
 export const Dashboard = () => {
   const navigate = useNavigate();
   const [user, setUser] = useState({});
-  
+  const [familyMembers, setFamilyMembers] = useState([]);
+  const [PTO, setPTO] = useState([
+    {
+      id: 0,
+      days_remaining: 0,
+      total_days: 0,
+      days_used: 0,
+    },
+  ]);
+  const [messages, setMessages] = useState([]);
+
   useEffect(() => {
-    getPTObyUserId().then(setUser);
+    getFamilyMembersByCurrentUser().then(setFamilyMembers);
+    getUserById().then(setUser);
+    getPTObyCurrentUser().then(setPTO);
+    getMessagesByCurrentUser().then(setMessages);
   }, []);
+
+  const conversationPluralization = () => {
+    if (messages.length === 1) {
+      return (
+        <Card.Text>
+          You have {messages.length} conversation. View your messages.
+        </Card.Text>
+      );
+    } else {
+      return (
+        <Card.Text>
+          You have {messages.length} conversations. View your messages.
+        </Card.Text>
+      );
+    }
+  };
+  const familyMemberPluralization = () => {
+    if (familyMembers.length === 1) {
+      return (
+        <Card.Text>
+          You have {familyMembers.length} family member declared on your
+          account.
+        </Card.Text>
+      );
+    } else {
+      return (
+        <Card.Text>
+          You have {familyMembers.length} family members declared on your
+          account.
+        </Card.Text>
+      );
+    }
+  };
 
   return (
     <>
@@ -22,8 +71,8 @@ export const Dashboard = () => {
             <Card.Body>
               <Card.Title>PTO Balance</Card.Title>
               <Card.Text>
-                You have {user[0]?.days_remaining} days of {user[0]?.total_days} days of PTO
-                remaining. You have used {user[0]?.days_used} days.
+                You have {PTO[0].days_remaining} days of {PTO[0]?.total_days}{" "}
+                days of PTO remaining. You have used {PTO[0]?.days_used} days.
               </Card.Text>
               <Button onClick={() => navigate(`/pto/create`)}>
                 Request PTO
@@ -33,10 +82,7 @@ export const Dashboard = () => {
           <Card>
             <Card.Body>
               <Card.Title>Family Portal</Card.Title>
-              <Card.Text>
-                Text for "You have familyMembers family members declared on your
-                account."
-              </Card.Text>
+              {familyMemberPluralization()}
               <Button onClick={() => navigate(`/family`)}>Update Family</Button>
             </Card.Body>
           </Card>
@@ -46,25 +92,13 @@ export const Dashboard = () => {
         <Col>
           <Card>
             <Card.Body>
-              <Card.Title>Promotions Portal</Card.Title>
+              <Card.Title>Promotions and Evaluations Portal</Card.Title>
               <Card.Text>
-                Your last Promotion discussion was on 1/1/2021. You are eligible
-                for promotion on 1/1/2022.
+                Your last Promotion was on {user[0]?.date_promoted}. Your last
+                Evaluation was on {user[0]?.date_evaluated}
               </Card.Text>
               <Button onClick={() => navigate(`/promos`)}>
                 Discuss Promotion
-              </Button>
-            </Card.Body>
-          </Card>
-          <Card>
-            <Card.Body>
-              <Card.Title>Evaluations Portal</Card.Title>
-              <Card.Text>
-                Your last feedback session was on 1/1/2021. You are eligible for
-                feedback on 6/1/2022.
-              </Card.Text>
-              <Button onClick={() => navigate(`/evals`)}>
-                Discuss Evaluation
               </Button>
             </Card.Body>
           </Card>
@@ -74,10 +108,10 @@ export const Dashboard = () => {
         <Col>
           <Card>
             <Card.Body>
-              <Card.Title>Messages Portal</Card.Title>
-              <Card.Text>View your messages.</Card.Text>
+              <Card.Title>Conversations Portal</Card.Title>
+              {conversationPluralization()}
               <Button onClick={() => navigate(`/messages`)}>
-                View Messages
+                View Conversations
               </Button>
             </Card.Body>
           </Card>
