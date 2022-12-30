@@ -1,5 +1,3 @@
-//create a new component called FamilySingle.js that will display the details of a single family member using the useParams hook. The component should display the following information: first name, last name, relationship, birthday, anniversary, and a button that will navigate the user to the FamilyUpdate form. The component should also display a button that will delete the family member from the database. Use useNavigate instead of history.push to navigate the user to the FamilyList component after the family member has been deleted.
-
 import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import {
