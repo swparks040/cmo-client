@@ -6,6 +6,7 @@ import { FamilyUpdate } from "../family/FamilyUpdate";
 import { MessageForm } from "../messages/MessageForm";
 import { AllMessages } from "../messages/MessagesAll";
 import { PTOForm } from "../pto/RequestPTO";
+import { FamilySingle } from "../family/FamilySingle";
 
 export const EmployeeViews = () => {
   return (
@@ -16,8 +17,9 @@ export const EmployeeViews = () => {
         <Route path="/messages/create" element={<MessageForm />} />
         <Route path="/pto/create" element={<PTOForm />} />
         <Route path="/family" element={<FamilyMemberList />} />
-        <Route path="/family/create" element={<FamilyDeclare />} />
-        <Route path="/family/:familyMemberId/update" element={ <FamilyUpdate />} />
+        <Route path="/familymembers/create" element={<FamilyDeclare />} />
+        <Route path="/familymembers/:familyMemberId" element={<FamilySingle />} />
+        <Route path="/familymembers/update/:familyMemberId" element={ <FamilyUpdate />} />
       </Routes>
     </>
   );

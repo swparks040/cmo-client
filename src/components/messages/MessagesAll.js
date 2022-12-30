@@ -12,3 +12,8 @@ export const AllMessages = () => {
     </>
   );
 };
+
+
+// create a page that renders all messages for the current user and display them in a list. Each message should have a button that allows the user to delete the message. The user should also have a button that allows them to create a new message. the message should have the following properties: id, user, category, publication_date, title, and content. 
+
+// Path: src/components/messages/MessagesAll.js

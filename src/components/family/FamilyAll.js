@@ -3,7 +3,7 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { getFamilyMembersByCurrentUser } from "../managers/FamilyManager";
 import { getUserById } from "../managers/UserManager";
 
@@ -30,7 +30,7 @@ export const FamilyMemberList = () => {
               <Card.Text>
               {familyMembers.map(familyMember => {
                 return (
-                  <p>{familyMember.first_name} {familyMember.last_name}</p>
+                  <Button onClick={() => navigate(`/familymembers/${familyMember.id}`)}>{familyMember.first_name} {familyMember.last_name}</Button>
                 )
               })}
               </Card.Text>
@@ -38,7 +38,7 @@ export const FamilyMemberList = () => {
           </Card>
           </Col>
           </Row>
-      <Button onClick={() => navigate(`/family/create`)}>Declare Family</Button>
+      <Button onClick={() => navigate(`/familymembers/create`)}>Declare Family</Button>
       <Button onClick={() => navigate(`/`)}>Back</Button>
     </>
   );

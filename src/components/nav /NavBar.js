@@ -39,8 +39,8 @@ export const NavBar = ({ token, setToken }) => {
               <Button
                 variant="outline-dark"
                 onClick={() => {
-                  setToken("");
-                  navigate("/login");
+                  localStorage.removeItem("auth_token");
+                  navigate('/login');
                 }}
               >
                 Logout

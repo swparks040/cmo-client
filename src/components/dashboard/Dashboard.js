@@ -45,6 +45,7 @@ export const Dashboard = () => {
       );
     }
   };
+
   const familyMemberPluralization = () => {
     if (familyMembers.length === 1) {
       return (
@@ -83,7 +84,7 @@ export const Dashboard = () => {
             <Card.Body>
               <Card.Title>Family Portal</Card.Title>
               {familyMemberPluralization()}
-              <Button onClick={() => navigate(`/family`)}>Update Family</Button>
+              <Button onClick={() => navigate(`/family`)}>Manage Family</Button>
             </Card.Body>
           </Card>
         </Col>

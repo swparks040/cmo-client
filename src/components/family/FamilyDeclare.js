@@ -145,7 +145,7 @@ export const FamilyDeclare = () => {
           />
         </Form.Group>
         <Button onClick={handleClickSaveFamilyMember}>Save</Button>
-        <Button onClick={() => navigate(`/family`)}>Back</Button>
+        <Button onClick={() => navigate(`/familymembers`)}>Back</Button>
       </Form>
     </>
   );

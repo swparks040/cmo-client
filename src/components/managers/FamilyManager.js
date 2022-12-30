@@ -73,3 +73,14 @@ export const updateFamilyMember = (familyMember) => {
     body: JSON.stringify(familyMember),
   }).then((res) => res.json());
 }
+
+export const deleteFamilyMember = (familyMemberId) => {
+  return fetch(`http://localhost:8000/familymembers/${familyMemberId}`, {
+    method: "DELETE",
+    headers: {
+      Authorization: `Token ${
+        JSON.parse(localStorage.getItem("auth_token")).token
+      }`,
+    },
+  });
+};
