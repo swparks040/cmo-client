@@ -1,4 +1,3 @@
-
 import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { getCurrentUser } from "../managers/UserManager";
@@ -7,12 +6,15 @@ import { getAllFamilyMemberRelationships } from "../managers/FamilyManager";
 import { updateFamilyMember } from "../managers/FamilyManager";
 
 export const FamilyUpdate = () => {
+  const { familyMemberId } = useParams();
+  
   const [currentUser, setCurrentUser] = useState({});
   useEffect(() => {
     getCurrentUser().then(setCurrentUser);
   }, []);
 
   const navigate = useNavigate();
+  
   const [familymemberrelationships, setFamilyMemberRelationships] = useState(
     []
   );
@@ -27,7 +29,6 @@ export const FamilyUpdate = () => {
     graduation: "",
   });
 
-  const { familyMemberId } = useParams();
 
   useEffect(() => {
     getFamilyMembersByCurrentUser(currentUser.id).then((data) => {

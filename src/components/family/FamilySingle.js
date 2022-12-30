@@ -8,15 +8,21 @@ import {
 import { getCurrentUser } from "../managers/UserManager";
 
 export const FamilySingle = () => {
+  const navigate = useNavigate();
+
+  const { familyMemberId } = useParams();
+
   const [currentUser, setCurrentUser] = useState({});
+
+  const [familymemberrelationships, setFamilyMemberRelationships] = useState(
+    []
+  );
+  
   useEffect(() => {
     getCurrentUser().then(setCurrentUser);
   }, []);
 
-  const navigate = useNavigate();
-  const [familymemberrelationships, setFamilyMemberRelationships] = useState(
-    []
-  );
+
   const [familyMember, setFamilyMember] = useState({
     cmouser: 0,
     family_member_relationship: 0,
@@ -26,7 +32,6 @@ export const FamilySingle = () => {
     anniversary: "",
     graduation: "",
   });
-  const { familyMemberId } = useParams();
 
   useEffect(() => {
     getFamilyMembersByCurrentUser(currentUser.id).then((data) => {
@@ -57,7 +62,9 @@ export const FamilySingle = () => {
       <p>Birthday: {familyMember.birthday}</p>
       <p>Anniversary: {familyMember.anniversary}</p>
       <p>Graduation: {familyMember.graduation}</p>
-      <button onClick={() => navigate(`/familymembers/update/${familyMember.id}`)}>
+      <button
+        onClick={() => navigate(`/familymembers/update/${familyMember.id}`)}
+      >
         Update
       </button>
       <button onClick={handleClickDeleteFamilyMember}>Delete</button>
