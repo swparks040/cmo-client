@@ -7,6 +7,25 @@ export const getAllUsers = () => {
     },
   }).then((res) => res.json());
 };
+export const getAllSubordinateUsers = () => {
+  return fetch("http://localhost:8000/cmousers?is_staff=False", {
+    headers: {
+      Authorization: `Token ${
+        JSON.parse(localStorage.getItem("auth_token")).token
+      }`,
+    },
+  }).then((res) => res.json());
+};
+
+export const getAllAdminUsers = () => {
+  return fetch("http://localhost:8000/cmousers?is_staff=True", {
+    headers: {
+      Authorization: `Token ${
+        JSON.parse(localStorage.getItem("auth_token")).token
+      }`,
+    },
+  }).then((res) => res.json());
+};
 
 export const getUserById = () => {
   return fetch(`http://localhost:8000/cmousers?user=current`, {
