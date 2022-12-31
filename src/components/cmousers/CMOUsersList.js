@@ -3,10 +3,11 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import {
   getAllAdminUsers,
   getAllSubordinateUsers,
+  getAllUsers,
 } from "../managers/UserManager";
 
 export const CMOUsersList = () => {
@@ -16,6 +17,8 @@ export const CMOUsersList = () => {
 
   const [adminUsers, setAdminUsers] = useState([{}]);
 
+  const [users, setUsers] = useState([{}]);
+
   useEffect(() => {
     getAllSubordinateUsers().then(setSubordinateUsers);
   }, []);
@@ -24,39 +27,23 @@ export const CMOUsersList = () => {
     getAllAdminUsers().then(setAdminUsers);
   }, []);
 
+  useEffect(() => {
+    getAllUsers().then(setUsers);
+  }, []);
+
   return (
     <>
       <Row>
         <Col>
           <Card>
             <Card.Body>
-              <Card.Title>Staff</Card.Title>
+              <Card.Title>Admin</Card.Title>
               <Card.Text>
                 {adminUsers.map((adminUser) => {
                   return (
-                    <Button onClick={() => navigate(`/users/${adminUser.id}`)}>
-                      {adminUser.full_name}
-                    </Button>
-                  );
-                })}
-              </Card.Text>
-            </Card.Body>
-          </Card>
-        </Col>
-        </Row>
-        <Row>
-        <Col>
-          <Card>
-            <Card.Body>
-              <Card.Title>Employees</Card.Title>
-              <Card.Text>
-                {subordinateUsers.map((subordinateUser) => {
-                  return (
-                    <Button
-                      onClick={() => navigate(`/users/${subordinateUser.id}`)}
-                    >
-                      {subordinateUser.full_name}
-                    </Button>
+                    <Link to={`/cmousers/${adminUser.id}`}>
+                      <Button>{adminUser.full_name}</Button>
+                    </Link>
                   );
                 })}
               </Card.Text>
@@ -64,7 +51,24 @@ export const CMOUsersList = () => {
           </Card>
         </Col>
       </Row>
-      <Button onClick={() => navigate(`/users/create`)}>Create User</Button>
+      <Row>
+        <Col>
+          <Card>
+            <Card.Body>
+              <Card.Title>Employees</Card.Title>
+              <Card.Text>
+                {subordinateUsers.map((subordinateUser) => {
+                  return (
+                    <Link to={`/cmousers/${subordinateUser.id}`}><Button>{subordinateUser.full_name}</Button>
+                      
+                    </Link>
+                  );
+                })}
+              </Card.Text>
+            </Card.Body>
+          </Card>
+        </Col>
+      </Row>
       <Button onClick={() => navigate(`/`)}>Back</Button>
     </>
   );

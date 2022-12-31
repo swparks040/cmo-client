@@ -5,7 +5,7 @@ import Button from "react-bootstrap/Button";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { getFamilyMembersByCurrentUser } from "../managers/FamilyManager";
-import { getUserById } from "../managers/UserManager";
+import { getCurrentUser } from "../managers/UserManager";
 
 export const FamilyMemberList = () => {
   const navigate = useNavigate();
@@ -16,7 +16,7 @@ export const FamilyMemberList = () => {
   
   useEffect(() => {
     getFamilyMembersByCurrentUser().then(setFamilyMembers);
-    getUserById().then(setUser);
+    getCurrentUser().then(setUser);
   }, []);
 
   return (

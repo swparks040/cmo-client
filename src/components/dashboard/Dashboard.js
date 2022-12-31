@@ -6,7 +6,7 @@ import Card from "react-bootstrap/Card";
 import { useNavigate } from "react-router-dom";
 import { getPTObyCurrentUser } from "../managers/PTOManager";
 import { getFamilyMembersByCurrentUser } from "../managers/FamilyManager";
-import { getUserById } from "../managers/UserManager";
+import { getCurrentUser } from "../managers/UserManager";
 import { getMessagesByCurrentUser } from "../managers/MessageManager";
 
 export const Dashboard = () => {
@@ -25,7 +25,7 @@ export const Dashboard = () => {
 
   useEffect(() => {
     getFamilyMembersByCurrentUser().then(setFamilyMembers);
-    getUserById().then(setUser);
+    getCurrentUser().then(setUser);
     getPTObyCurrentUser().then(setPTO);
     getMessagesByCurrentUser().then(setMessages);
   }, []);

@@ -1,5 +1,6 @@
 import { Route, Routes } from "react-router-dom";
 import { CMOUsersList } from "../cmousers/CMOUsersList";
+import { CMOUserDetails } from "../cmousers/CMOUserDetails";
 import { AdminDashboard } from "../dashboard/AdminDashboard";
 import { MessageForm } from "../messages/MessageForm";
 import { MessageResponses } from "../messages/MessageResponses";
@@ -20,6 +21,7 @@ export const AdminViews = () => {
         <Route path="/messages/:messageId/responses" element={<MessageResponses />} />
         <Route path="/messages/:messageId/responses/create" element={<ResponseForm />} />
         <Route path="/cmousers" element={<CMOUsersList />} />
+        <Route path="/cmousers/:userId" element={<CMOUserDetails />} />
       </Routes>
     </>
   );

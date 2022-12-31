@@ -5,7 +5,7 @@ import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import { getAllFamilyMembers } from "../managers/FamilyManager";
 import { getAllMessages } from "../managers/MessageManager";
-import { getAllUsers, getUserById } from "../managers/UserManager";
+import { getAllUsers, getCurrentUser } from "../managers/UserManager";
 import { getAllPTO } from "../managers/PTOManager";
 import { useNavigate } from "react-router-dom";
 
@@ -18,7 +18,7 @@ export const AdminDashboard = () => {
   const [user, setUser] = useState({});
 
   useEffect(() => {
-    getUserById().then(setUser);
+    getCurrentUser().then(setUser);
     getAllUsers().then(setUsers);
     getAllFamilyMembers().then(setFamilyMembers);
     getAllMessages().then(setMessages);

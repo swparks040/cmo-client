@@ -5,7 +5,7 @@ import Row from "react-bootstrap/Row";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { getAllMessages } from "../managers/MessageManager";
-import { getUserById } from "../managers/UserManager";
+import { getCurrentUser } from "../managers/UserManager";
 
 export const AllMessagesAdmin = () => {
   const navigate = useNavigate();
@@ -16,7 +16,7 @@ export const AllMessagesAdmin = () => {
 
   useEffect(() => {
     getAllMessages().then(setMessages);
-    getUserById().then(setUser);
+    getCurrentUser().then(setUser);
   }, []);
 
   return (

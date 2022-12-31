@@ -27,8 +27,18 @@ export const getAllAdminUsers = () => {
   }).then((res) => res.json());
 };
 
-export const getUserById = () => {
+export const getCurrentUser = () => {
   return fetch(`http://localhost:8000/cmousers?user=current`, {
+    headers: {
+      Authorization: `Token ${
+        JSON.parse(localStorage.getItem("auth_token")).token
+      }`,
+    },
+  }).then((res) => res.json());
+};
+
+export const getUserById = (id) => {
+  return fetch(`http://localhost:8000/cmousers/${id}`, {
     headers: {
       Authorization: `Token ${
         JSON.parse(localStorage.getItem("auth_token")).token
@@ -66,13 +76,3 @@ export const deleteUser = (userId) => {
   });
 };
 
-export const getCurrentUser = () => {
-  return fetch("http://localhost:8000/cmousers/current", {
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: `Token ${
-        JSON.parse(localStorage.getItem("auth_token")).token
-      }`,
-    },
-  }).then((res) => res.json());
-};
