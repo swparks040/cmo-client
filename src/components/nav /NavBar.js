@@ -6,7 +6,7 @@ import Button from "react-bootstrap/Button";
 import { useNavigate } from "react-router-dom";
 import Logo from "./CMOLogo.png";
 
-export const NavBar = ({ token, setToken }) => {
+export const NavBar = () => {
   const navigate = useNavigate();
 
   return (
@@ -32,8 +32,7 @@ export const NavBar = ({ token, setToken }) => {
             >
               <NavDropdown.Item href="/pto">PTO</NavDropdown.Item>
               <NavDropdown.Item href="/familymembers">Family</NavDropdown.Item>
-              <NavDropdown.Item href="/promo">Promotion</NavDropdown.Item>
-              <NavDropdown.Item href="/eval">Evaluations</NavDropdown.Item>
+              <NavDropdown.Item href="/messages">Conversations</NavDropdown.Item>
             </NavDropdown>
             <Nav.Link>
               <Button

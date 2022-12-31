@@ -1,5 +1,5 @@
 import { Route, Routes } from "react-router-dom";
-import { Dashboard } from "../dashboard/Dashboard";
+import { AdminDashboard } from "../dashboard/AdminDashboard";
 import { MessageForm } from "../messages/MessageForm";
 import NavBar from "../nav /NavBar";
 
@@ -8,7 +8,7 @@ export const AdminViews = () => {
     <>
       <Routes>
         <NavBar />
-        <Route path="/" element={<Dashboard />} />
+        <Route path="/" element={<AdminDashboard />} />
         <Route path="/messages/create" element={<MessageForm />} />
       </Routes>
     </>
