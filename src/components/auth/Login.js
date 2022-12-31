@@ -21,6 +21,7 @@ export const Login = ({ setToken }) => {
     loginUser(user).then((res) => {
       if ("valid" in res && res.valid) {
         localStorage.setItem("auth_token", JSON.stringify(res));
+        localStorage.setItem("is_staff", res.is_staff);
         navigate("/");
       } else {
         setisUnsuccessful(true);

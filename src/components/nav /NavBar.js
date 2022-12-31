@@ -39,6 +39,7 @@ export const NavBar = () => {
                 variant="outline-dark"
                 onClick={() => {
                   localStorage.removeItem("auth_token");
+                  localStorage.removeItem("is_staff")
                   navigate('/login');
                 }}
               >
