@@ -31,7 +31,7 @@ export const NavBar = ({ token, setToken }) => {
               id="basic-nav-dropdown"
             >
               <NavDropdown.Item href="/pto">PTO</NavDropdown.Item>
-              <NavDropdown.Item href="/family">Family</NavDropdown.Item>
+              <NavDropdown.Item href="/familymembers">Family</NavDropdown.Item>
               <NavDropdown.Item href="/promo">Promotion</NavDropdown.Item>
               <NavDropdown.Item href="/eval">Evaluations</NavDropdown.Item>
             </NavDropdown>

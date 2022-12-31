@@ -50,7 +50,7 @@ export const FamilySingle = () => {
 
   const handleClickDeleteFamilyMember = (event) => {
     event.preventDefault();
-    deleteFamilyMember(familyMember.id).then(() => navigate("/family"));
+    deleteFamilyMember(familyMember.id).then(() => navigate("/familymembers"));
   };
 
   return (

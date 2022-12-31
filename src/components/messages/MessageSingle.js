@@ -7,6 +7,7 @@ import {
 } from "../managers/MessageManager";
 import { getCurrentUser } from "../managers/UserManager";
 import Button from "react-bootstrap/Button";
+import { MessageResponses } from "./MessageResponses";
 
 export const MessageSingle = () => {
   const navigate = useNavigate();
@@ -15,7 +16,10 @@ export const MessageSingle = () => {
 
   const [currentUser, setCurrentUser] = useState({});
 
-  const [categories, setCategories] = useState([]);
+  const [categories, setCategories] = useState({
+    id: 0,
+    label: "",
+  });
 
   useEffect(() => {
     getCurrentUser().then(setCurrentUser);
@@ -58,6 +62,7 @@ export const MessageSingle = () => {
       <Button variant="danger" onClick={handleClickDeleteMessage}>
         Delete Message
       </Button>
+      <MessageResponses />
     </>
   );
 };

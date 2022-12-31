@@ -49,7 +49,7 @@ export const getMessagesByCurrentUser = () => {
 };
 
 export const addMessage = (message) => {
-  return fetch("http://localhost:8000/messages", {
+  return fetch(`http://localhost:8000/messages`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
