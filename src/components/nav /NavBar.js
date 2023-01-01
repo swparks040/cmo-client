@@ -32,15 +32,17 @@ export const NavBar = () => {
             >
               <NavDropdown.Item href="/pto">PTO</NavDropdown.Item>
               <NavDropdown.Item href="/familymembers">Family</NavDropdown.Item>
-              <NavDropdown.Item href="/messages">Conversations</NavDropdown.Item>
+              <NavDropdown.Item href="/messages">
+                Conversations
+              </NavDropdown.Item>
             </NavDropdown>
             <Nav.Link>
               <Button
                 variant="outline-dark"
                 onClick={() => {
                   localStorage.removeItem("auth_token");
-                  localStorage.removeItem("is_staff")
-                  navigate('/login');
+                  localStorage.removeItem("is_staff");
+                  navigate("/login");
                 }}
               >
                 Logout

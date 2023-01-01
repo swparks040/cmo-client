@@ -82,7 +82,7 @@ export const updateFamilyMember = (familyMember) => {
     },
     body: JSON.stringify(familyMember),
   }).then((res) => res.json());
-}
+};
 
 export const deleteFamilyMember = (familyMemberId) => {
   return fetch(`http://localhost:8000/familymembers/${familyMemberId}`, {

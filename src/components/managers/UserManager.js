@@ -48,7 +48,7 @@ export const getUserById = (id) => {
 };
 
 export const addUser = (user) => {
-  return fetch("http://localhost:8000/users", {
+  return fetch("http://localhost:8000/cmousers", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -71,8 +71,12 @@ export const updateUser = (cmouser) => {
 };
 
 export const deleteUser = (userId) => {
-  return fetch(`http://localhost:8000/users/${userId}`, {
+  return fetch(`http://localhost:8000/cmousers/${userId}`, {
     method: "DELETE",
+    headers: {
+      Authorization: `Token ${
+        JSON.parse(localStorage.getItem("auth_token")).token
+      }`,
+    },
   });
 };
-

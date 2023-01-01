@@ -7,14 +7,14 @@ import { updateFamilyMember } from "../managers/FamilyManager";
 
 export const FamilyUpdate = () => {
   const { familyMemberId } = useParams();
-  
+
   const [currentUser, setCurrentUser] = useState({});
   useEffect(() => {
     getCurrentUser().then(setCurrentUser);
   }, []);
 
   const navigate = useNavigate();
-  
+
   const [familymemberrelationships, setFamilyMemberRelationships] = useState(
     []
   );
@@ -28,7 +28,6 @@ export const FamilyUpdate = () => {
     anniversary: "",
     graduation: "",
   });
-
 
   useEffect(() => {
     getFamilyMembersByCurrentUser(currentUser.id).then((data) => {
@@ -182,4 +181,3 @@ export const FamilyUpdate = () => {
 };
 
 export default FamilyUpdate;
-

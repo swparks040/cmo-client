@@ -4,14 +4,14 @@ import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import { getUserById } from "../managers/UserManager";
+import { getUserById, deleteUser } from "../managers/UserManager";
 import { getAllFamilyMembersByUserId } from "../managers/FamilyManager";
 
 export const CMOUserDetails = () => {
   const navigate = useNavigate();
-  
+
   const { userId } = useParams();
-  
+
   const [user, setUser] = useState({
     id: 0,
     full_name: "",
@@ -25,18 +25,23 @@ export const CMOUserDetails = () => {
     date_evaluated: "",
     date_promoted: "",
     profile_image_url: "",
-
   });
 
-  const [familyMembers, setFamilyMembers] = useState([{
-    cmouser: 0,
-    first_name: "",
-    last_name: "",
-    family_member_relationship: 0,
-    birthday: "",
-    anniversary: "",
-    graduation: "",
-  }]);
+  const [familyMembers, setFamilyMembers] = useState([
+    {
+      cmouser: 0,
+      first_name: "",
+      last_name: "",
+      family_member_relationship: 0,
+      birthday: "",
+      anniversary: "",
+      graduation: "",
+    },
+  ]);
+
+  useEffect(() => {
+    getUserById(userId).then(setUser);
+  }, []);
 
   useEffect(() => {
     getAllFamilyMembersByUserId(user.id).then((data) => {
@@ -47,9 +52,10 @@ export const CMOUserDetails = () => {
     });
   }, []);
 
-  useEffect(() => {
-    getUserById(userId).then(setUser);
-  }, []);
+  const handleClickDeleteUser = (event) => {
+    event.preventDefault();
+    deleteUser(user.id).then(() => navigate("/cmousers"));
+  };
 
   return (
     <>
@@ -66,13 +72,18 @@ export const CMOUserDetails = () => {
               <Card.Text>Date Hired: {user.date_hired}</Card.Text>
               <Card.Text>Date Evaluated: {user.date_evaluated}</Card.Text>
               <Card.Text>Date Promoted: {user.date_promoted}</Card.Text>
-              <Card.Text>Number of Family Members: {familyMembers.length}</Card.Text>
-          </Card.Body>
-        </Card>
-      </Col>
-    </Row>
-    <Button onClick={() => navigate(`/cmousers`)}>Back</Button>
-    <Button onClick={() => navigate(`/cmousers/${user.id}/update`)}>Edit</Button>
+              <Card.Text>
+                Number of Family Members: {familyMembers?.length}
+              </Card.Text>
+            </Card.Body>
+          </Card>
+        </Col>
+      </Row>
+      <Button onClick={() => navigate(`/cmousers`)}>Back</Button>
+      <Button onClick={() => navigate(`/cmousers/${user.id}/update`)}>
+        Edit
+      </Button>
+      <Button onClick={handleClickDeleteUser}>Delete</Button>
     </>
   );
 };

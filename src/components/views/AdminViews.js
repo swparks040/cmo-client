@@ -19,11 +19,20 @@ export const AdminViews = () => {
         <Route path="/messages/create" element={<MessageForm />} />
         <Route path="/messages/:messageId" element={<MessageSingle />} />
         <Route path="/messages/update/:messageId" element={<MessageUpdate />} />
-        <Route path="/messages/:messageId/responses" element={<MessageResponses />} />
-        <Route path="/messages/:messageId/responses/create" element={<ResponseForm />} />
+        <Route
+          path="/messages/:messageId/responses"
+          element={<MessageResponses />}
+        />
+        <Route
+          path="/messages/:messageId/responses/create"
+          element={<ResponseForm />}
+        />
         <Route path="/cmousers" element={<CMOUsersList />} />
         <Route path="/cmousers/:userId" element={<CMOUserDetails />} />
-        <Route path="/cmousers/:userId/update" element={<CMOUserDetailsUpdate />} />
+        <Route
+          path="/cmousers/:userId/update"
+          element={<CMOUserDetailsUpdate />}
+        />
       </Routes>
     </>
   );

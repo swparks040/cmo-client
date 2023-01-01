@@ -21,12 +21,24 @@ export const EmployeeViews = () => {
         <Route path="/messages/create" element={<MessageForm />} />
         <Route path="/messages/:messageId" element={<MessageSingle />} />
         <Route path="/messages/update/:messageId" element={<MessageUpdate />} />
-        <Route path="/messages/:messageId/responses" element={<MessageResponses />} />
-        <Route path="/messages/:messageId/responses/create" element={<ResponseForm />} />
+        <Route
+          path="/messages/:messageId/responses"
+          element={<MessageResponses />}
+        />
+        <Route
+          path="/messages/:messageId/responses/create"
+          element={<ResponseForm />}
+        />
         <Route path="/familymembers" element={<FamilyMemberList />} />
         <Route path="/familymembers/create" element={<FamilyDeclare />} />
-        <Route path="/familymembers/:familyMemberId" element={<FamilySingle />} />
-        <Route path="/familymembers/update/:familyMemberId" element={<FamilyUpdate />} />
+        <Route
+          path="/familymembers/:familyMemberId"
+          element={<FamilySingle />}
+        />
+        <Route
+          path="/familymembers/update/:familyMemberId"
+          element={<FamilyUpdate />}
+        />
         <Route path="/pto/create" element={<PTOForm />} />
       </Routes>
     </>

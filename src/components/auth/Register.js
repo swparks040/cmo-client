@@ -82,7 +82,7 @@ export const Register = ({ setToken }) => {
                         <Form.Control
                           ref={username}
                           type="text"
-                          placeholder="Enter Username" 
+                          placeholder="Enter Username"
                         />
                       </Form.Group>
                       <Form.Group className="mb-3" controlId="firstName">
@@ -100,7 +100,7 @@ export const Register = ({ setToken }) => {
                           Last Name
                         </Form.Label>
                         <Form.Control
-                        ref={lastName}
+                          ref={lastName}
                           type="text"
                           placeholder="Enter Last Name"
                         />
@@ -109,7 +109,11 @@ export const Register = ({ setToken }) => {
                         <Form.Label className="text-center">
                           Email address
                         </Form.Label>
-                        <Form.Control ref={email} type="email" placeholder="Enter email" />
+                        <Form.Control
+                          ref={email}
+                          type="email"
+                          placeholder="Enter email"
+                        />
                       </Form.Group>
                       <Form.Group className="mb-3" controlId="password">
                         <Form.Label>Password</Form.Label>
@@ -142,7 +146,11 @@ export const Register = ({ setToken }) => {
                       </Form.Group>
                       <Form.Group className="mb-3" controlId="salary">
                         <Form.Label className="text-center">Salary</Form.Label>
-                        <Form.Control ref={salary} type="text" placeholder="Enter Salary" />
+                        <Form.Control
+                          ref={salary}
+                          type="text"
+                          placeholder="Enter Salary"
+                        />
                       </Form.Group>
                       <Form.Group className="mb-3" controlId="birthday">
                         <Form.Label className="text-center">
@@ -154,13 +162,13 @@ export const Register = ({ setToken }) => {
                         <Form.Label className="text-center">
                           Date Hired
                         </Form.Label>
-                        <Form.Control type="date" ref={dateHired}/>
+                        <Form.Control type="date" ref={dateHired} />
                       </Form.Group>
                       <Form.Group className="mb-3" controlId="dateEvaluated">
                         <Form.Label className="text-center">
                           Date Evaluated
                         </Form.Label>
-                        <Form.Control type="date" ref={dateEvaluated}/>
+                        <Form.Control type="date" ref={dateEvaluated} />
                       </Form.Group>
                       <Form.Group className="mb-3" controlId="datePromoted">
                         <Form.Label className="text-center">

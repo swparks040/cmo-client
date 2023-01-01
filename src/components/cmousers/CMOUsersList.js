@@ -52,8 +52,8 @@ export const CMOUsersList = () => {
               <Card.Text>
                 {subordinateUsers.map((subordinateUser) => {
                   return (
-                    <Link to={`/cmousers/${subordinateUser.id}`}><Button>{subordinateUser.full_name}</Button>
-                      
+                    <Link to={`/cmousers/${subordinateUser.id}`}>
+                      <Button>{subordinateUser.full_name}</Button>
                     </Link>
                   );
                 })}

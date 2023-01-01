@@ -17,11 +17,10 @@ export const FamilySingle = () => {
   const [familymemberrelationships, setFamilyMemberRelationships] = useState(
     []
   );
-  
+
   useEffect(() => {
     getCurrentUser().then(setCurrentUser);
   }, []);
-
 
   const [familyMember, setFamilyMember] = useState({
     cmouser: 0,

@@ -16,4 +16,4 @@ export const getAllPTO = () => {
       }`,
     },
   }).then((res) => res.json());
-}
+};

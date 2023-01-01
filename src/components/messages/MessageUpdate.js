@@ -4,18 +4,21 @@ import { useNavigate, useParams } from "react-router-dom";
 import { getCurrentUser } from "../managers/UserManager";
 import { getAllCategories } from "../managers/CategoryManager";
 import Form from "react-bootstrap/Form";
-import { getMessagesByCurrentUser, updateMessage } from "../managers/MessageManager";
+import {
+  getMessagesByCurrentUser,
+  updateMessage,
+} from "../managers/MessageManager";
 
 export const MessageUpdate = () => {
   const { messageId } = useParams();
-  
+
   const [currentUser, setCurrentUser] = useState({});
   useEffect(() => {
     getCurrentUser().then(setCurrentUser);
   }, []);
 
   const navigate = useNavigate();
-  
+
   const [categories, setCategories] = useState([]);
 
   const [message, setMessage] = useState({
@@ -24,7 +27,6 @@ export const MessageUpdate = () => {
     publication_date: "",
     title: "",
     content: "",
-
   });
 
   useEffect(() => {
@@ -46,7 +48,6 @@ export const MessageUpdate = () => {
       publication_date: message.publication_date,
       title: message.title,
       content: message.content,
-
     };
 
     if (message.category === 0) {

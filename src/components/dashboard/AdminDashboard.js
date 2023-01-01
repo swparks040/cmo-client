@@ -48,7 +48,9 @@ export const AdminDashboard = () => {
               <Card.Text>
                 You have {messages.length} messages in the system.
               </Card.Text>
-              <Button onClick={() => navigate(`/messages`)}>View Messages</Button>
+              <Button onClick={() => navigate(`/messages`)}>
+                View Messages
+              </Button>
             </Card.Body>
           </Card>
           <Card className="text-center">
@@ -58,7 +60,7 @@ export const AdminDashboard = () => {
               <Card.Text>
                 You have {PTO.length} PTO requests in the system.
               </Card.Text>
-                <Button onClick={() => navigate(`/pto`)}>View PTO</Button>
+              <Button onClick={() => navigate(`/pto`)}>View PTO</Button>
             </Card.Body>
           </Card>
         </Col>

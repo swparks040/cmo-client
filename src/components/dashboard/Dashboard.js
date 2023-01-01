@@ -84,7 +84,9 @@ export const Dashboard = () => {
             <Card.Body>
               <Card.Title>Family Portal</Card.Title>
               {familyMemberPluralization()}
-              <Button onClick={() => navigate(`/familymembers`)}>Manage Family</Button>
+              <Button onClick={() => navigate(`/familymembers`)}>
+                Manage Family
+              </Button>
             </Card.Body>
           </Card>
         </Col>

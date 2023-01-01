@@ -9,11 +9,11 @@ import { getCurrentUser } from "../managers/UserManager";
 
 export const FamilyMemberList = () => {
   const navigate = useNavigate();
-  
+
   const [familyMembers, setFamilyMembers] = useState([{}]);
-  
+
   const [user, setUser] = useState({});
-  
+
   useEffect(() => {
     getFamilyMembersByCurrentUser().then(setFamilyMembers);
     getCurrentUser().then(setUser);
