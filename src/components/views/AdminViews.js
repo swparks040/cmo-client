@@ -8,6 +8,7 @@ import { AllMessagesAdmin } from "../messages/MessagesAllAdmin";
 import { MessageSingle } from "../messages/MessageSingle";
 import { MessageUpdate } from "../messages/MessageUpdate";
 import { ResponseForm } from "../messages/ResponseForm";
+import { CMOUserDetailsUpdate } from "../cmousers/CMOUserDetailsUpdate";
 
 export const AdminViews = () => {
   return (
@@ -22,6 +23,7 @@ export const AdminViews = () => {
         <Route path="/messages/:messageId/responses/create" element={<ResponseForm />} />
         <Route path="/cmousers" element={<CMOUsersList />} />
         <Route path="/cmousers/:userId" element={<CMOUserDetails />} />
+        <Route path="/cmousers/:userId/update" element={<CMOUserDetailsUpdate />} />
       </Routes>
     </>
   );

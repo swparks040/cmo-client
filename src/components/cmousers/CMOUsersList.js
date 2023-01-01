@@ -7,7 +7,6 @@ import { Link, useNavigate } from "react-router-dom";
 import {
   getAllAdminUsers,
   getAllSubordinateUsers,
-  getAllUsers,
 } from "../managers/UserManager";
 
 export const CMOUsersList = () => {
@@ -17,18 +16,12 @@ export const CMOUsersList = () => {
 
   const [adminUsers, setAdminUsers] = useState([{}]);
 
-  const [users, setUsers] = useState([{}]);
-
   useEffect(() => {
     getAllSubordinateUsers().then(setSubordinateUsers);
   }, []);
 
   useEffect(() => {
     getAllAdminUsers().then(setAdminUsers);
-  }, []);
-
-  useEffect(() => {
-    getAllUsers().then(setUsers);
   }, []);
 
   return (

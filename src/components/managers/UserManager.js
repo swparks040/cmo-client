@@ -57,8 +57,8 @@ export const addUser = (user) => {
   });
 };
 
-export const updateUser = (user) => {
-  return fetch(`http://localhost:8000/cmousers/${user.id}`, {
+export const updateUser = (cmouser) => {
+  return fetch(`http://localhost:8000/cmousers/${cmouser.id}`, {
     method: "PUT",
     headers: {
       "Content-Type": "application/json",
@@ -66,7 +66,7 @@ export const updateUser = (user) => {
         JSON.parse(localStorage.getItem("auth_token")).token
       }`,
     },
-    body: JSON.stringify(user),
+    body: JSON.stringify(cmouser),
   });
 };
 
