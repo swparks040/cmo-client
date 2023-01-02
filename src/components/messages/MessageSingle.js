@@ -64,6 +64,7 @@ export const MessageSingle = () => {
       <Button variant="danger" onClick={handleClickDeleteMessage}>
         Delete Message
       </Button>
+      <Button onClick={() => navigate(`/messages`)}>Back</Button>
       <MessageResponses />
     </>
   );

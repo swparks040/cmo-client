@@ -70,7 +70,7 @@ export const ResponseForm = () => {
             <Button variant="primary" onClick={handleClickSaveResponse}>
               Save Response
             </Button>
-            <Link to={`/messages/${messageId}`}>Return to Message</Link>
+            <Link to={`/messages/${messageId}`}><Button>Return to Message</Button></Link>
           </Form>
         </Card.Body>
       </Card>

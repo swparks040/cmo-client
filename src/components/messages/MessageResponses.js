@@ -35,7 +35,6 @@ export const MessageResponses = () => {
           <Card.Text>{message.content}</Card.Text>
           <Card.Text>{message.created_on}</Card.Text>
           <Card.Text>{message.author}</Card.Text>
-
           {responses.map((response) => {
             return (
               <>

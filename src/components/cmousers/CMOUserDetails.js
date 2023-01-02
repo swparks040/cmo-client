@@ -38,18 +38,23 @@ export const CMOUserDetails = () => {
       graduation: "",
     },
   ]);
-
+// console.log(familyMembers)
+  
   useEffect(() => {
     getUserById(userId).then(setUser);
   }, []);
 
+  // useEffect(() => {
+  //   getAllFamilyMembersByUserId(user.id).then((data) => {
+  //     const familyMembers = data.find((f) => f.id === parseInt(user.id));
+  //     if (familyMembers) {
+  //       setFamilyMembers(familyMembers);
+  //     }
+  //   });
+  // }, []);
+
   useEffect(() => {
-    getAllFamilyMembersByUserId(user.id).then((data) => {
-      const familyMembers = data.find((f) => f.id === parseInt(user.id));
-      if (familyMembers) {
-        setFamilyMembers(familyMembers);
-      }
-    });
+    getAllFamilyMembersByUserId(user.id).then(setFamilyMembers);
   }, []);
 
   const handleClickDeleteUser = (event) => {
