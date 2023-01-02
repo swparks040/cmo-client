@@ -35,7 +35,7 @@ export const CMOUsersList = () => {
                 {adminUsers.map((adminUser) => {
                   return (
                     <Link to={`/cmousers/${adminUser.id}`}>
-                      <Button>{adminUser.full_name}</Button>
+                      <Button variant="dark">{adminUser.full_name}</Button>
                     </Link>
                   );
                 })}
@@ -53,7 +53,7 @@ export const CMOUsersList = () => {
                 {subordinateUsers.map((subordinateUser) => {
                   return (
                     <Link to={`/cmousers/${subordinateUser.id}`}>
-                      <Button>{subordinateUser.full_name}</Button>
+                      <Button variant="dark">{subordinateUser.full_name}</Button>
                     </Link>
                   );
                 })}
@@ -62,7 +62,7 @@ export const CMOUsersList = () => {
           </Card>
         </Col>
       </Row>
-      <Button onClick={() => navigate(`/`)}>Back</Button>
+      <Button variant="dark" onClick={() => navigate(`/`)}>Back</Button>
     </>
   );
 };

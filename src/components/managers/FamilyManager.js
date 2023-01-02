@@ -19,7 +19,7 @@ export const getAllFamilyMembersById = (id) => {
 };
 
 export const getAllFamilyMembersByUserId = (id) => {
-  return fetch(`http://localhost:8000/familymembers?cmouser/${id}`, {
+  return fetch(`http://localhost:8000/familymembers?cmouser=${id}`, {
     headers: {
       Authorization: `Token ${
         JSON.parse(localStorage.getItem("auth_token")).token

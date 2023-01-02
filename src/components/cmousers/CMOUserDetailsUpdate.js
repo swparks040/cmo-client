@@ -140,7 +140,7 @@ export const CMOUserDetailsUpdate = () => {
             autoFocus
           />
         </Form.Group>
-        <Button variant="primary" onClick={handleClickSaveUser}>
+        <Button variant="dark" onClick={handleClickSaveUser}>
           Save User
         </Button>
       </Form>

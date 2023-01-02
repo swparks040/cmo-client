@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import Button from "react-bootstrap/Button";
 import { useParams, useNavigate } from "react-router-dom";
 import {
   deleteFamilyMember,
@@ -61,12 +62,12 @@ export const FamilySingle = () => {
       <p>Birthday: {familyMember.birthday}</p>
       <p>Anniversary: {familyMember.anniversary}</p>
       <p>Graduation: {familyMember.graduation}</p>
-      <button
-        onClick={() => navigate(`/familymembers/update/${familyMember.id}`)}
+      <Button
+        variant="dark" onClick={() => navigate(`/familymembers/update/${familyMember.id}`)}
       >
         Update
-      </button>
-      <button onClick={handleClickDeleteFamilyMember}>Delete</button>
+      </Button>
+      <Button variant="dark" onClick={handleClickDeleteFamilyMember}>Delete</Button>
     </>
   );
 };

@@ -67,7 +67,7 @@ export const ResponseForm = () => {
                 onChange={changeMessageState}
               />
             </Form.Group>
-            <Button variant="primary" onClick={handleClickSaveResponse}>
+            <Button variant="dark" onClick={handleClickSaveResponse}>
               Save Response
             </Button>
             <Link to={`/messages/${messageId}`}><Button>Return to Message</Button></Link>

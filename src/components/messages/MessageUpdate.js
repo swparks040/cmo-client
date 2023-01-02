@@ -111,7 +111,7 @@ export const MessageUpdate = () => {
           />
         </Form.Group>
         <Button
-          variant="primary"
+          variant="dark"
           type="submit"
           onClick={handleClickSaveMessage}
         >

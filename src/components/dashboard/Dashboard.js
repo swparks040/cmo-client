@@ -75,7 +75,7 @@ export const Dashboard = () => {
                 You have {PTO[0].days_remaining} days of {PTO[0]?.total_days}{" "}
                 days of PTO remaining. You have used {PTO[0]?.days_used} days.
               </Card.Text>
-              <Button onClick={() => navigate(`/pto/create`)}>
+              <Button variant="dark" onClick={() => navigate(`/pto/create`)}>
                 Request PTO
               </Button>
             </Card.Body>
@@ -84,7 +84,7 @@ export const Dashboard = () => {
             <Card.Body>
               <Card.Title>Family Portal</Card.Title>
               {familyMemberPluralization()}
-              <Button onClick={() => navigate(`/familymembers`)}>
+              <Button variant="dark" onClick={() => navigate(`/familymembers`)}>
                 Manage Family
               </Button>
             </Card.Body>
@@ -100,7 +100,7 @@ export const Dashboard = () => {
                 Your last Promotion was on {user[0]?.date_promoted}. Your last
                 Evaluation was on {user[0]?.date_evaluated}
               </Card.Text>
-              <Button onClick={() => navigate(`/promos`)}>
+              <Button variant="dark" onClick={() => navigate(`/promos`)}>
                 Discuss Promotion
               </Button>
             </Card.Body>
@@ -113,7 +113,7 @@ export const Dashboard = () => {
             <Card.Body>
               <Card.Title>Conversations Portal</Card.Title>
               {conversationPluralization()}
-              <Button onClick={() => navigate(`/messages`)}>
+              <Button variant="dark" onClick={() => navigate(`/messages`)}>
                 View Conversations
               </Button>
             </Card.Body>

@@ -95,8 +95,8 @@ export const MessageForm = () => {
             onChange={changeMessageState}
           />
         </Form.Group>
-        <Button onClick={handleClickSaveMessage}>Save Message</Button>
-        <Button onClick={() => navigate(`/messages`)}>Back</Button>
+        <Button variant="dark" onClick={handleClickSaveMessage}>Save Message</Button>
+        <Button variant="dark" onClick={() => navigate(`/messages`)}>Back</Button>
       </Form>
     </>
   );

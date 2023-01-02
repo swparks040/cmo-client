@@ -4,6 +4,7 @@ import { getCurrentUser } from "../managers/UserManager";
 import { getFamilyMembersByCurrentUser } from "../managers/FamilyManager";
 import { getAllFamilyMemberRelationships } from "../managers/FamilyManager";
 import { updateFamilyMember } from "../managers/FamilyManager";
+import Button from "react-bootstrap/Button";
 
 export const FamilyUpdate = () => {
   const { familyMemberId } = useParams();
@@ -169,12 +170,12 @@ export const FamilyUpdate = () => {
             />
           </div>
         </fieldset>
-        <button
+        <Button variant="dark"
           className="btn btn-primary"
           onClick={handleClickSaveFamilyMember}
         >
           Save Family Member
-        </button>
+        </Button>
       </form>
     </>
   );

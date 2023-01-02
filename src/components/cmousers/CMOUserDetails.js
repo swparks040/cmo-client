@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { getUserById, deleteUser } from "../managers/UserManager";
 import { getAllFamilyMembersByUserId } from "../managers/FamilyManager";
+import "./CMOUsers.css";
 
 export const CMOUserDetails = () => {
   const navigate = useNavigate();
@@ -38,24 +39,14 @@ export const CMOUserDetails = () => {
       graduation: "",
     },
   ]);
-// console.log(familyMembers)
-  
+ 
   useEffect(() => {
     getUserById(userId).then(setUser);
   }, []);
 
-  // useEffect(() => {
-  //   getAllFamilyMembersByUserId(user.id).then((data) => {
-  //     const familyMembers = data.find((f) => f.id === parseInt(user.id));
-  //     if (familyMembers) {
-  //       setFamilyMembers(familyMembers);
-  //     }
-  //   });
-  // }, []);
-
   useEffect(() => {
     getAllFamilyMembersByUserId(user.id).then(setFamilyMembers);
-  }, []);
+  }, [user]);
 
   const handleClickDeleteUser = (event) => {
     event.preventDefault();
@@ -84,11 +75,11 @@ export const CMOUserDetails = () => {
           </Card>
         </Col>
       </Row>
-      <Button onClick={() => navigate(`/cmousers`)}>Back</Button>
-      <Button onClick={() => navigate(`/cmousers/${user.id}/update`)}>
+      <Button variant="dark" onClick={() => navigate(`/cmousers`)}>Back</Button>
+      <Button variant="dark" onClick={() => navigate(`/cmousers/${user.id}/update`)}>
         Edit
       </Button>
-      <Button onClick={handleClickDeleteUser}>Delete</Button>
+      <Button variant="dark" onClick={handleClickDeleteUser}>Delete</Button>
     </>
   );
 };

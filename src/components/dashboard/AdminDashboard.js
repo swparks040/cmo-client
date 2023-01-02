@@ -36,7 +36,7 @@ export const AdminDashboard = () => {
               <Card.Text>
                 You have {users.length} employees registered in the system.
               </Card.Text>
-              <Button onClick={() => navigate(`/cmousers`)}>
+              <Button variant="dark" onClick={() => navigate(`/cmousers`)}>
                 View Employees
               </Button>
             </Card.Body>
@@ -48,7 +48,7 @@ export const AdminDashboard = () => {
               <Card.Text>
                 You have {messages.length} messages in the system.
               </Card.Text>
-              <Button onClick={() => navigate(`/messages`)}>
+              <Button variant="dark" onClick={() => navigate(`/messages`)}>
                 View Messages
               </Button>
             </Card.Body>
@@ -60,7 +60,7 @@ export const AdminDashboard = () => {
               <Card.Text>
                 You have {PTO.length} PTO requests in the system.
               </Card.Text>
-              <Button onClick={() => navigate(`/pto`)}>View PTO</Button>
+              <Button variant="dark" onClick={() => navigate(`/pto`)}>View PTO</Button>
             </Card.Body>
           </Card>
         </Col>

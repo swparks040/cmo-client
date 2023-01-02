@@ -31,7 +31,7 @@ export const AllMessagesAdmin = () => {
               <Card.Text>
                 {messages.map((message) => {
                   return (
-                    <Button onClick={() => navigate(`/messages/${message.id}`)}>
+                    <Button variant="dark" onClick={() => navigate(`/messages/${message.id}`)}>
                       {message.title}
                     </Button>
                   );
@@ -41,10 +41,10 @@ export const AllMessagesAdmin = () => {
           </Card>
         </Col>
       </Row>
-      <Button onClick={() => navigate(`/messages/create`)}>
+      <Button variant="dark" onClick={() => navigate(`/messages/create`)}>
         Create Message
       </Button>
-      <Button onClick={() => navigate(`/`)}>Back</Button>
+      <Button variant="dark" onClick={() => navigate(`/`)}>Back</Button>
     </>
   );
 };

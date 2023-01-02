@@ -58,13 +58,13 @@ export const MessageSingle = () => {
       <p>Category: {message.category.label}</p>
       <p>Publication Date: {message.publication_date}</p>
       <p>Content: {message.content}</p>
-      <Button onClick={() => navigate(`/messages/update/${message.id}`)}>
+      <Button variant="dark" onClick={() => navigate(`/messages/update/${message.id}`)}>
         Update Message
       </Button>
-      <Button variant="danger" onClick={handleClickDeleteMessage}>
+      <Button variant="dark" onClick={handleClickDeleteMessage}>
         Delete Message
       </Button>
-      <Button onClick={() => navigate(`/messages`)}>Back</Button>
+      <Button variant="dark" onClick={() => navigate(`/messages`)}>Back</Button>
       <MessageResponses />
     </>
   );

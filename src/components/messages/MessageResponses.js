@@ -46,7 +46,7 @@ export const MessageResponses = () => {
         </Card.Body>
       </Card>
       <Button
-        onClick={() => navigate(`/messages/${messageId}/responses/create`)}
+        variant="dark" onClick={() => navigate(`/messages/${messageId}/responses/create`)}
       >
         Add Response
       </Button>

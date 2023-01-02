@@ -32,7 +32,7 @@ export const FamilyMemberList = () => {
                 {familyMembers.map((familyMember) => {
                   return (
                     <Button
-                      onClick={() =>
+                    variant="dark" onClick={() =>
                         navigate(`/familymembers/${familyMember.id}`)
                       }
                     >
@@ -45,10 +45,10 @@ export const FamilyMemberList = () => {
           </Card>
         </Col>
       </Row>
-      <Button onClick={() => navigate(`/familymembers/create`)}>
+      <Button variant="dark" onClick={() => navigate(`/familymembers/create`)}>
         Declare Family
       </Button>
-      <Button onClick={() => navigate(`/`)}>Back</Button>
+      <Button variant="dark" onClick={() => navigate(`/`)}>Back</Button>
     </>
   );
 };

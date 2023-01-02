@@ -38,7 +38,7 @@ export const NavBar = () => {
             </NavDropdown>
             <Nav.Link>
               <Button
-                variant="outline-dark"
+                variant="dark"
                 onClick={() => {
                   localStorage.removeItem("auth_token");
                   localStorage.removeItem("is_staff");
