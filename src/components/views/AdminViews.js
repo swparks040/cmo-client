@@ -3,11 +3,11 @@ import { CMOUsersList } from "../cmousers/CMOUsersList";
 import { CMOUserDetails } from "../cmousers/CMOUserDetails";
 import { AdminDashboard } from "../dashboard/AdminDashboard";
 import { MessageForm } from "../messages/MessageForm";
-import { MessageResponses } from "../messages/MessageResponses";
+import { MessageComments } from "../messages/MessageComments";
 import { AllMessagesAdmin } from "../messages/MessagesAllAdmin";
 import { MessageSingle } from "../messages/MessageSingle";
 import { MessageUpdate } from "../messages/MessageUpdate";
-import { ResponseForm } from "../messages/ResponseForm";
+import { CommentForm } from "../messages/CommentForm";
 import { CMOUserDetailsUpdate } from "../cmousers/CMOUserDetailsUpdate";
 
 export const AdminViews = () => {
@@ -20,12 +20,12 @@ export const AdminViews = () => {
         <Route path="/messages/:messageId" element={<MessageSingle />} />
         <Route path="/messages/update/:messageId" element={<MessageUpdate />} />
         <Route
-          path="/messages/:messageId/responses"
-          element={<MessageResponses />}
+          path="/messages/:messageId/comments"
+          element={<MessageComments />}
         />
         <Route
-          path="/messages/:messageId/responses/create"
-          element={<ResponseForm />}
+          path="/messages/:messageId/comments/create"
+          element={<CommentForm />}
         />
         <Route path="/cmousers" element={<CMOUsersList />} />
         <Route path="/cmousers/:userId" element={<CMOUserDetails />} />

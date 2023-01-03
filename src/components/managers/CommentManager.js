@@ -1,5 +1,5 @@
-export const getResponsesByMessageId = (messageId) => {
-  return fetch(`http://localhost:8000/responses?messages=${messageId}`, {
+export const getCommentsByMessageId = (messageId) => {
+  return fetch(`http://localhost:8000/comments?messages=${messageId}`, {
     headers: {
       Authorization: `Token ${
         JSON.parse(localStorage.getItem("auth_token")).token
@@ -8,8 +8,8 @@ export const getResponsesByMessageId = (messageId) => {
   }).then((res) => res.json());
 };
 
-export const addResponse = (response) => {
-  return fetch(`http://localhost:8000/responses`, {
+export const addComment = (comment) => {
+  return fetch(`http://localhost:8000/comments`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -17,12 +17,12 @@ export const addResponse = (response) => {
         JSON.parse(localStorage.getItem("auth_token")).token
       }`,
     },
-    body: JSON.stringify(response),
+    body: JSON.stringify(comment),
   }).then((res) => res.json());
 };
 
-export const deleteResponse = (responseId) => {
-  return fetch(`http://localhost:8000/responses/${responseId}`, {
+export const deleteComment = (commentId) => {
+  return fetch(`http://localhost:8000/comments/${commentId}`, {
     method: "DELETE",
     headers: {
       Authorization: `Token ${
@@ -32,8 +32,8 @@ export const deleteResponse = (responseId) => {
   });
 };
 
-export const responseEdit = (response) => {
-  return fetch(`http://localhost:8000/responses/${response.id}`, {
+export const commentEdit = (comment) => {
+  return fetch(`http://localhost:8000/comments/${comment.id}`, {
     method: "PUT",
     headers: {
       "Content-Type": "application/json",
@@ -41,12 +41,12 @@ export const responseEdit = (response) => {
         JSON.parse(localStorage.getItem("auth_token")).token
       }`,
     },
-    body: JSON.stringify(response),
+    body: JSON.stringify(comment),
   });
 };
 
-export const getResponseById = (id) => {
-  return fetch(`http://localhost:8000/responses/${id}`, {
+export const getCommentById = (id) => {
+  return fetch(`http://localhost:8000/comments/${id}`, {
     headers: {
       Authorization: `Token ${
         JSON.parse(localStorage.getItem("auth_token")).token

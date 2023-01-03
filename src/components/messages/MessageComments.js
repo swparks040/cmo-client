@@ -1,16 +1,16 @@
 import { useEffect, useState } from "react";
 import { getMessageById } from "../managers/MessageManager";
-import { getResponsesByMessageId } from "../managers/ResponseManager";
+import { getCommentsByMessageId } from "../managers/CommentManager";
 import { getCurrentUser } from "../managers/UserManager";
 import { useParams, useNavigate } from "react-router-dom";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 
-export const MessageResponses = () => {
+export const MessageComments = () => {
   const [currentUser, setCurrentUser] = useState({});
   const navigate = useNavigate();
   const [message, setMessage] = useState({});
-  const [responses, setResponses] = useState([]);
+  const [comments, setComments] = useState([]);
   const { messageId } = useParams();
 
   useEffect(() => {
@@ -22,8 +22,8 @@ export const MessageResponses = () => {
   }, [messageId]);
 
   useEffect(() => {
-    getResponsesByMessageId(messageId).then((messageResponseData) =>
-      setResponses(messageResponseData)
+    getCommentsByMessageId(messageId).then((messageCommentData) =>
+      setComments(messageCommentData)
     );
   }, [messageId]);
 
@@ -35,20 +35,20 @@ export const MessageResponses = () => {
           <Card.Text>{message.content}</Card.Text>
           <Card.Text>{message.created_on}</Card.Text>
           <Card.Text>{message.author}</Card.Text>
-          {responses.map((response) => {
+          {comments.map((comment) => {
             return (
               <>
-                <Card.Text>{response.content}</Card.Text>
-                <Card.Text>{response.author}</Card.Text>
+                <Card.Text>{comment.content}</Card.Text>
+                <Card.Text>{comment.author}</Card.Text>
               </>
             );
           })}
         </Card.Body>
       </Card>
       <Button
-        variant="dark" onClick={() => navigate(`/messages/${messageId}/responses/create`)}
+        variant="dark" onClick={() => navigate(`/messages/${messageId}/comments/create`)}
       >
-        Add Response
+        Add Comment
       </Button>
     </>
   );

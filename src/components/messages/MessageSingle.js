@@ -7,7 +7,7 @@ import {
 } from "../managers/MessageManager";
 import { getCurrentUser } from "../managers/UserManager";
 import Button from "react-bootstrap/Button";
-import { MessageResponses } from "./MessageResponses";
+import { MessageComments } from "./MessageComments";
 
 export const MessageSingle = () => {
   const navigate = useNavigate();
@@ -65,7 +65,7 @@ export const MessageSingle = () => {
         Delete Message
       </Button>
       <Button variant="dark" onClick={() => navigate(`/messages`)}>Back</Button>
-      <MessageResponses />
+      <MessageComments />
     </>
   );
 };

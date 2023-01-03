@@ -2,12 +2,12 @@ import { useState, useEffect } from "react";
 import { useParams, useNavigate, Link } from "react-router-dom";
 import { getCurrentUser } from "../managers/UserManager";
 import { getMessageById } from "../managers/MessageManager";
-import { addResponse } from "../managers/ResponseManager";
+import { addComment } from "../managers/CommentManager";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 
-export const ResponseForm = () => {
+export const CommentForm = () => {
   const { messageId } = useParams();
 
   const navigate = useNavigate();
@@ -20,7 +20,7 @@ export const ResponseForm = () => {
     getCurrentUser().then(setCurrentUser);
   }, []);
 
-  const [newResponse, setNewResponse] = useState({
+  const [newComment, setNewComment] = useState({
     message: messageId,
     author: currentUser.id,
     content: "",
@@ -34,20 +34,20 @@ export const ResponseForm = () => {
   const changeMessageState = (domEvent) => {
     const copy = { ...message };
     copy[domEvent.target.id] = domEvent.target.value;
-    setNewResponse(copy);
+    setNewComment(copy);
   };
 
-  const handleClickSaveResponse = (event) => {
+  const handleClickSaveComment = (event) => {
     event.preventDefault();
 
-    const newResponseToAPI = {
+    const newCommentToAPI = {
       message: messageId,
       author: currentUser.id,
-      content: newResponse.content,
+      content: newComment.content,
       created_on: "",
     };
 
-    addResponse(newResponseToAPI);
+    addComment(newCommentToAPI);
   };
 
   return (
@@ -56,19 +56,19 @@ export const ResponseForm = () => {
         <Card.Body>
           <Form>
             <Form.Group>
-              <Form.Label htmlFor="content">Response</Form.Label>
+              <Form.Label htmlFor="content">Comment</Form.Label>
               <Form.Control
                 as="textarea"
                 id="content"
                 required
                 autoFocus
-                placeholder="Provide a response to the message."
-                value={newResponse.content}
+                placeholder="Provide a comment to the message."
+                value={newComment.content}
                 onChange={changeMessageState}
               />
             </Form.Group>
-            <Button variant="dark" onClick={handleClickSaveResponse}>
-              Save Response
+            <Button variant="dark" onClick={handleClickSaveComment}>
+              Save CommenthandleClickSaveComment
             </Button>
             <Link to={`/messages/${messageId}`}><Button>Return to Message</Button></Link>
           </Form>
