@@ -39,7 +39,8 @@ export const MessageComments = () => {
             return (
               <>
                 <Card.Text>{comment.content}</Card.Text>
-                <Card.Text>{comment.author}</Card.Text>
+                <Card.Text>{comment.author}</Card.Text> 
+                <Card.Text>{comment.created_on}</Card.Text>
               </>
             );
           })}

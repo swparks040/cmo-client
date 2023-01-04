@@ -14,7 +14,6 @@ export const Register = ({ setToken }) => {
   const lastName = useRef();
   const email = useRef();
   const username = useRef();
-  const isStaff = useRef();
   const password = useRef();
   const jobPosition = useRef();
   const salary = useRef();
@@ -38,7 +37,7 @@ export const Register = ({ setToken }) => {
         email: email.current.value,
         password: password.current.value,
         verify_password: verifyPassword.current.value,
-        is_staff: isStaff.current.value,
+        is_staff: false,
         job_position: jobPosition.current.value,
         salary: salary.current.value,
         birthday: birthday.current.value,

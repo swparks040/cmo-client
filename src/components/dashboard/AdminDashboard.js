@@ -30,7 +30,7 @@ export const AdminDashboard = () => {
       <Row>
         <Col>
           <Card className="text-center">
-            <Card.Header as="h3">Admin Dashboard</Card.Header>
+            <Card.Header as="h3">Employee Portal</Card.Header>
             <Card.Body>
               <Card.Title>Welcome, {user[0]?.user?.first_name}!</Card.Title>
               <Card.Text>
@@ -42,7 +42,7 @@ export const AdminDashboard = () => {
             </Card.Body>
           </Card>
           <Card className="text-center">
-            <Card.Header as="h3">Messages</Card.Header>
+            <Card.Header as="h3">Messages Portal</Card.Header>
             <Card.Body>
               <Card.Title>Messages</Card.Title>
               <Card.Text>
@@ -54,7 +54,7 @@ export const AdminDashboard = () => {
             </Card.Body>
           </Card>
           <Card className="text-center">
-            <Card.Header as="h3">PTO</Card.Header>
+            <Card.Header as="h3">PTO Portal</Card.Header>
             <Card.Body>
               <Card.Title>PTO</Card.Title>
               <Card.Text>

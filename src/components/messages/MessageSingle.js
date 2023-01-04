@@ -16,7 +16,7 @@ export const MessageSingle = () => {
 
   const [currentUser, setCurrentUser] = useState({});
 
-  const [categories, setCategories] = useState({
+  const [category, setCategory] = useState({
     id: 0,
     label: "",
   });
@@ -43,8 +43,8 @@ export const MessageSingle = () => {
   }, []);
 
   useEffect(() => {
-    getAllCategories().then((data) => setCategories(data));
-  }, []);
+    getAllCategories().then((data) => setCategory(data));
+  }, [category]);
 
   const handleClickDeleteMessage = (event) => {
     event.preventDefault();

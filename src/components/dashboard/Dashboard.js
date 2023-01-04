@@ -68,7 +68,8 @@ export const Dashboard = () => {
     <>
       <Row>
         <Col>
-          <Card>
+          <Card className="text-center">
+            <Card.Header as="h3">PTO Portal</Card.Header>
             <Card.Body>
               <Card.Title>PTO Balance</Card.Title>
               <Card.Text>
@@ -80,9 +81,10 @@ export const Dashboard = () => {
               </Button>
             </Card.Body>
           </Card>
-          <Card>
+          <Card className="text-center">
+          <Card.Header as="h3">Family Portal</Card.Header>
             <Card.Body>
-              <Card.Title>Family Portal</Card.Title>
+              <Card.Title>Family Members</Card.Title>
               {familyMemberPluralization()}
               <Button variant="dark" onClick={() => navigate(`/familymembers`)}>
                 Manage Family
@@ -93,25 +95,10 @@ export const Dashboard = () => {
       </Row>
       <Row>
         <Col>
-          <Card>
+          <Card className="text-center">
+          <Card.Header as="h3">Conversations Portal</Card.Header>
             <Card.Body>
-              <Card.Title>Promotions and Evaluations Portal</Card.Title>
-              <Card.Text>
-                Your last Promotion was on {user[0]?.date_promoted}. Your last
-                Evaluation was on {user[0]?.date_evaluated}
-              </Card.Text>
-              <Button variant="dark" onClick={() => navigate(`/promos`)}>
-                Discuss Promotion
-              </Button>
-            </Card.Body>
-          </Card>
-        </Col>
-      </Row>
-      <Row>
-        <Col>
-          <Card>
-            <Card.Body>
-              <Card.Title>Conversations Portal</Card.Title>
+              <Card.Title>Conversations</Card.Title>
               {conversationPluralization()}
               <Button variant="dark" onClick={() => navigate(`/messages`)}>
                 View Conversations
