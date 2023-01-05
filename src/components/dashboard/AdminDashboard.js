@@ -42,6 +42,17 @@ export const AdminDashboard = () => {
             </Card.Body>
           </Card>
           <Card className="text-center">
+            <Card.Header as="h3">PTO Portal</Card.Header>
+            <Card.Body>
+              <Card.Title>PTO</Card.Title>
+              <Card.Text>
+                You have {PTO.length} PTO requests in the system.
+              </Card.Text>
+              <Button variant="dark" onClick={() => navigate(`/pto/create`)}>Seed PTO</Button>
+              <Button variant="dark" onClick={() => navigate(`/pto`)}>Manage PTO</Button>
+            </Card.Body>
+          </Card>
+          <Card className="text-center">
             <Card.Header as="h3">Messages Portal</Card.Header>
             <Card.Body>
               <Card.Title>Messages</Card.Title>
@@ -51,16 +62,6 @@ export const AdminDashboard = () => {
               <Button variant="dark" onClick={() => navigate(`/messages`)}>
                 View Messages
               </Button>
-            </Card.Body>
-          </Card>
-          <Card className="text-center">
-            <Card.Header as="h3">PTO Portal</Card.Header>
-            <Card.Body>
-              <Card.Title>PTO</Card.Title>
-              <Card.Text>
-                You have {PTO.length} PTO requests in the system.
-              </Card.Text>
-              <Button variant="dark" onClick={() => navigate(`/pto`)}>View PTO</Button>
             </Card.Body>
           </Card>
         </Col>

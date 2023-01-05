@@ -8,7 +8,6 @@ import { AllMessages } from "../messages/MessagesAll";
 import { MessageForm } from "../messages/MessageForm";
 import { MessageUpdate } from "../messages/MessageUpdate";
 import { MessageSingle } from "../messages/MessageSingle";
-import { PTOForm } from "../pto/RequestPTO";
 import { CommentForm } from "../messages/CommentForm";
 import { MessageComments } from "../messages/MessageComments";
 
@@ -39,7 +38,6 @@ export const EmployeeViews = () => {
           path="/familymembers/update/:familyMemberId"
           element={<FamilyUpdate />}
         />
-        <Route path="/pto/create" element={<PTOForm />} />
       </Routes>
     </>
   );
