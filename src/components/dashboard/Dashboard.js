@@ -3,7 +3,6 @@ import Button from "react-bootstrap/Button";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Card from "react-bootstrap/Card";
-import { Doughnut } from "react-chartjs-2";
 import { useNavigate } from "react-router-dom";
 import { getPTObyCurrentUser } from "../managers/PTOManager";
 import { getFamilyMembersByCurrentUser } from "../managers/FamilyManager";
@@ -65,33 +64,6 @@ export const Dashboard = () => {
     }
   };
 
-  const PTOChart = () => {
-  const [user, setUser] = useState({});
-  const [PTO, setPTO] = useState([
-    {
-      id: 0,
-      days_remaining: 0,
-      total_days: 0,
-      days_used: 0,
-    },
-  ]);
-
-  useEffect(() => {
-    getCurrentUser().then(setUser);
-    getPTObyCurrentUser().then(setPTO);
-  }, []);
-
-  const data = {
-    labels: ["Days Remaining", "Days Used"],
-    datasets: [
-      {
-        label: "PTO",
-        data: [PTO[0].days_remaining, PTO[0].days_used],
-        backgroundColor: ["#FF6384", "#36A2EB"],
-        hoverBackgroundColor: ["#FF6384", "#36A2EB"],
-      },
-    ],
-  };
 
   return (
     <>
@@ -105,7 +77,6 @@ export const Dashboard = () => {
                 You have {PTO[0].days_remaining} days of {PTO[0]?.total_days}{" "}
                 days of PTO remaining. You have used {PTO[0]?.days_used} days.
               </Card.Text>
-              <Doughnut data={data} />
               <Button variant="dark" onClick={() => navigate(`/pto/create`)}>
                 Request PTO
               </Button>
@@ -140,5 +111,3 @@ export const Dashboard = () => {
     </>
   );
 };
-
-}
