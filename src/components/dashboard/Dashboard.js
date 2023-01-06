@@ -8,6 +8,8 @@ import { getPTObyCurrentUser } from "../managers/PTOManager";
 import { getFamilyMembersByCurrentUser } from "../managers/FamilyManager";
 import { getCurrentUser } from "../managers/UserManager";
 import { getMessagesByCurrentUser } from "../managers/MessageManager";
+import PTOChart from "./DoughnutChart";
+
 
 export const Dashboard = () => {
   const navigate = useNavigate();
@@ -77,6 +79,7 @@ export const Dashboard = () => {
                 You have {PTO[0].days_remaining} days of {PTO[0]?.total_days}{" "}
                 days of PTO remaining. You have used {PTO[0]?.days_used} days.
               </Card.Text>
+              <Card.Text>{PTOChart()}</Card.Text>
               <Button variant="dark" onClick={() => navigate(`/pto/create`)}>
                 Request PTO
               </Button>
