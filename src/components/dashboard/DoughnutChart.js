@@ -48,7 +48,7 @@ export const PTOChart = () => {
           data: [PTO[0].days_remaining, PTO[0].days_used],
           borderColor: "#01295f",
           backgroundColor: ["#36A2EB", "#01295f"],
-          hoverBackgroundColor: ["#768320", "#790105"],
+          hoverBackgroundColor: ["#AAD897", "#790105"],
         },
       ],
     });

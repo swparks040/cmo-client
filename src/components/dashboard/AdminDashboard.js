@@ -6,7 +6,7 @@ import Button from "react-bootstrap/Button";
 import { getAllFamilyMembers } from "../managers/FamilyManager";
 import { getAllMessages } from "../managers/MessageManager";
 import { getAllUsers, getCurrentUser } from "../managers/UserManager";
-import { getAllPTO } from "../managers/PTOManager";
+import { getAllPTO, getAllPTORequests } from "../managers/PTOManager";
 import { useNavigate } from "react-router-dom";
 
 export const AdminDashboard = () => {
@@ -15,6 +15,7 @@ export const AdminDashboard = () => {
   const [familyMembers, setFamilyMembers] = useState([]);
   const [messages, setMessages] = useState([]);
   const [PTO, setPTO] = useState([]);
+  const [PTORequest, setPTORequest] = useState({});
   const [user, setUser] = useState({});
 
   useEffect(() => {
@@ -22,7 +23,7 @@ export const AdminDashboard = () => {
     getAllUsers().then(setUsers);
     getAllFamilyMembers().then(setFamilyMembers);
     getAllMessages().then(setMessages);
-    getAllPTO().then(setPTO);
+    getAllPTORequests().then(setPTORequest);
   }, []);
 
   return (
@@ -46,10 +47,10 @@ export const AdminDashboard = () => {
             <Card.Body>
               <Card.Title>PTO</Card.Title>
               <Card.Text>
-                You have {PTO.length} PTO requests in the system.
+                You have {PTORequest.length} PTO requests pending.
               </Card.Text>
-              <Button variant="dark" onClick={() => navigate(`/pto/create`)}>Seed PTO</Button>
               <Button variant="dark" onClick={() => navigate(`/pto`)}>Manage PTO</Button>
+              <Button variant="danger" onClick={() => navigate(`/pto/create`)}>Seed PTO</Button>
             </Card.Body>
           </Card>
           <Card className="text-center">

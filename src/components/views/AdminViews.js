@@ -9,7 +9,7 @@ import { MessageSingle } from "../messages/MessageSingle";
 import { MessageUpdate } from "../messages/MessageUpdate";
 import { CommentForm } from "../messages/CommentForm";
 import { CMOUserDetailsUpdate } from "../cmousers/CMOUserDetailsUpdate";
-import { SeedPTO } from "../pto/SeedPTO";
+// import { SeedPTO } from "../pto/SeedPTO";
 import { PTOList } from "../pto/ListPTO";
 import { PTOSingle } from "../pto/EmployeePTO";
 
@@ -38,7 +38,7 @@ export const AdminViews = () => {
         />
         <Route path="/pto" element={<PTOList />} />
         <Route path="/pto/:ptoId" element={<PTOSingle />} />
-        <Route path="/pto/create" element={<SeedPTO />} />
+        {/* <Route path="/pto/create" element={<SeedPTO />} /> */}
       </Routes>
     </>
   );

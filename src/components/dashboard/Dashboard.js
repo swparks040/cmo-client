@@ -4,7 +4,7 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Card from "react-bootstrap/Card";
 import { useNavigate } from "react-router-dom";
-import { getPTObyCurrentUser } from "../managers/PTOManager";
+import { getPTObyCurrentUser, getPTORequestbyCurrentUser } from "../managers/PTOManager";
 import { getFamilyMembersByCurrentUser } from "../managers/FamilyManager";
 import { getCurrentUser } from "../managers/UserManager";
 import { getMessagesByCurrentUser } from "../managers/MessageManager";
@@ -24,11 +24,22 @@ export const Dashboard = () => {
     },
   ]);
   const [messages, setMessages] = useState([]);
+  const [PTORequest, setPTORequest] = useState({
+    pto: 0,
+    cmouser: 0,
+    start_date: "",
+    end_date: "",
+    days_requested: 0,
+    justification: "",
+    is_approved: false,
+  });
+
 
   useEffect(() => {
     getFamilyMembersByCurrentUser().then(setFamilyMembers);
     getCurrentUser().then(setUser);
     getPTObyCurrentUser().then(setPTO);
+    getPTORequestbyCurrentUser().then(setPTORequest);
     getMessagesByCurrentUser().then(setMessages);
   }, []);
 
@@ -65,6 +76,22 @@ export const Dashboard = () => {
       );
     }
   };
+  
+  const PTORequestPluralization = () => {
+    if (PTORequest.length === 1) {
+      return (
+        <Card.Text>
+          You have {PTORequest.length} PTO Request pending.
+        </Card.Text>
+      );
+    } else {
+      return (
+        <Card.Text>
+          You have {PTORequest.length} PTO Requests pending.
+        </Card.Text>
+      );
+    }
+  };
 
 
   return (
@@ -80,9 +107,11 @@ export const Dashboard = () => {
                 days of PTO remaining. You have used {PTO[0]?.days_used} days.
               </Card.Text>
               <Card.Text>{PTOChart()}</Card.Text>
+              {PTORequestPluralization()}
               <Button variant="dark" onClick={() => navigate(`/pto/create`)}>
                 Request PTO
               </Button>
+              <Button variant="dark" onClick={() => navigate(`/ptorequests`)} >PTO Requests</Button>
             </Card.Body>
           </Card>
           <Card className="text-center">

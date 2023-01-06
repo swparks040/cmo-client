@@ -10,6 +10,8 @@ import { MessageUpdate } from "../messages/MessageUpdate";
 import { MessageSingle } from "../messages/MessageSingle";
 import { CommentForm } from "../messages/CommentForm";
 import { MessageComments } from "../messages/MessageComments";
+import { RequestPTO } from "../ptorequests/RequestPTO";
+import { AllPTORequests } from "../ptorequests/PTORequestList";
 
 export const EmployeeViews = () => {
   return (
@@ -38,6 +40,8 @@ export const EmployeeViews = () => {
           path="/familymembers/update/:familyMemberId"
           element={<FamilyUpdate />}
         />
+        <Route path="/ptorequests" element={<AllPTORequests />} />
+        <Route path="/ptorequests/create" element={<RequestPTO />} />
       </Routes>
     </>
   );
