@@ -27,13 +27,13 @@ export const AllPTORequests = () => {
             <Card.Body>
               <Card.Title>PTO Requests</Card.Title>
               <p>Hello {user[0]?.user?.first_name}!</p>
-              <p>You have the following pending PTO Requests:</p>
+              <p>You have {PTORequests.length} pending PTO Requests:</p>
               <Card.Text>
                 {PTORequests.map((PTORequest) => {
                   return (
                     <Button
                       variant="dark"
-                      onClick={() => navigate(`/ptorequests`)}
+                      onClick={() => navigate(`/ptorequests/${PTORequest.id}`)}
                     >
                       {PTORequest.start_date} - {PTORequest.end_date}
                     </Button>

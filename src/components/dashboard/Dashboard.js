@@ -4,7 +4,7 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Card from "react-bootstrap/Card";
 import { useNavigate } from "react-router-dom";
-import { getPTObyCurrentUser, getPTORequestbyCurrentUser } from "../managers/PTOManager";
+import { getPTObyCurrentUser, getPTORequestByCurrentUser } from "../managers/PTOManager";
 import { getFamilyMembersByCurrentUser } from "../managers/FamilyManager";
 import { getCurrentUser } from "../managers/UserManager";
 import { getMessagesByCurrentUser } from "../managers/MessageManager";
@@ -39,7 +39,7 @@ export const Dashboard = () => {
     getFamilyMembersByCurrentUser().then(setFamilyMembers);
     getCurrentUser().then(setUser);
     getPTObyCurrentUser().then(setPTO);
-    getPTORequestbyCurrentUser().then(setPTORequest);
+    getPTORequestByCurrentUser().then(setPTORequest);
     getMessagesByCurrentUser().then(setMessages);
   }, []);
 

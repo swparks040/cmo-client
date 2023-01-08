@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, useNavigate } from "react-router-dom";
 import { getCurrentUser } from "../managers/UserManager";
 import { getMessageById } from "../managers/MessageManager";
 import { addComment } from "../managers/CommentManager";
@@ -8,6 +8,7 @@ import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 
 export const CommentForm = () => {
+  const navigate = useNavigate();
   const { messageId } = useParams();
 
   const [currentUser, setCurrentUser] = useState({});
@@ -45,7 +46,9 @@ export const CommentForm = () => {
       created_on: "",
     };
 
-    addComment(newCommentToAPI);
+    addComment(newCommentToAPI).then(() => {
+      navigate(`/messages/${messageId}`);
+    });
   };
 
   return (
@@ -66,7 +69,7 @@ export const CommentForm = () => {
               />
             </Form.Group>
             <Button variant="dark" onClick={handleClickSaveComment}>
-              Save Comment
+              Leave Comment
             </Button>
             <Link to={`/messages/${messageId}`}><Button>Return to Message</Button></Link>
           </Form>

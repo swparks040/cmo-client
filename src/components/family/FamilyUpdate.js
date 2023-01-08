@@ -15,7 +15,6 @@ export const FamilyUpdate = () => {
   }, []);
 
   const navigate = useNavigate();
-
   const [familymemberrelationships, setFamilyMemberRelationships] = useState(
     []
   );

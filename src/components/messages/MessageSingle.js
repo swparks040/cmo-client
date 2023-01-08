@@ -44,7 +44,7 @@ export const MessageSingle = () => {
 
   useEffect(() => {
     getAllCategories().then((data) => setCategory(data));
-  }, [category]);
+  }, []);
 
   const handleClickDeleteMessage = (event) => {
     event.preventDefault();

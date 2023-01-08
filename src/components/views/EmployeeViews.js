@@ -12,6 +12,8 @@ import { CommentForm } from "../messages/CommentForm";
 import { MessageComments } from "../messages/MessageComments";
 import { RequestPTO } from "../ptorequests/RequestPTO";
 import { AllPTORequests } from "../ptorequests/PTORequestList";
+import { PTORequestSingle } from "../ptorequests/PTORequestSingle";
+import { PTORequestUpdate } from "../ptorequests/PTORequestUpdate";
 
 export const EmployeeViews = () => {
   return (
@@ -41,6 +43,8 @@ export const EmployeeViews = () => {
           element={<FamilyUpdate />}
         />
         <Route path="/ptorequests" element={<AllPTORequests />} />
+        <Route path="/ptorequests/:PTORequestId" element={<PTORequestSingle />} />
+        <Route path="/ptorequests/:PTORequestId/update" element={<PTORequestUpdate />} />
         <Route path="/ptorequests/create" element={<RequestPTO />} />
       </Routes>
     </>

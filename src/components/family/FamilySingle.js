@@ -43,7 +43,7 @@ export const FamilySingle = () => {
   }, []);
 
   useEffect(() => {
-    getAllFamilyMemberRelationships().then((data) =>
+    getAllFamilyMemberRelationships(familymemberrelationships).then((data) =>
       setFamilyMemberRelationships(data)
     );
   }, []);
