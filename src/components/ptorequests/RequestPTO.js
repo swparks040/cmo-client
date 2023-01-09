@@ -66,7 +66,7 @@ const [request, setRequest] = useState({
     };
 
   return (
-    <Form>
+    <Form className="ptoRequest">
       <Form.Group>
         <Form.Label>Start Date</Form.Label>
         <Form.Control
@@ -119,7 +119,7 @@ const [request, setRequest] = useState({
           value={request.justification}
         />
       </Form.Group>
-      <Button variant="primary" onClick={handleClickSaveRequest}>
+      <Button className="ptoRequestSubmit"variant="success" onClick={handleClickSaveRequest}>
         Submit Request
       </Button>
     </Form>

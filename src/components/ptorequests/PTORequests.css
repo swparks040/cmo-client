@@ -1,7 +1,61 @@
-
-.form-control {
+.ptoRequest {
   width: 80%;
   margin: 0 auto;
   margin-top: 0.5rem;
   margin-bottom: 0.5rem;
+}
+
+.ptoRequestSubmit.btn.btn-success {
+  width: 60%;
+  margin: 0 auto;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  display: flex;
+  justify-content: center;
+}
+
+.form-label {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: black;
+  display: flex;
+  justify-content: center;
+}
+
+.ptoListName {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: black;
+  display: flex;
+  justify-content: center;
+}
+
+.ptoListInfo {
+  font-size: 1.2rem;
+  color: black;
+  display: flex;
+  justify-content: center;
+}
+
+.ptoListItem.btn.btn-dark {
+  width: 80%;
+  display: flex;
+  justify-content: center;
+}
+
+.ptoListDates {
+  color: white;
+  display: flex;
+  justify-content: center;
+}
+
+.ptoListHeader {
+  height: 4rem;
+  text-align: center;
+  font-size: 2rem;
+  background-color: #01295f;
+  color: white;
+  display: flex;
+  justify-content: center;
+  border-radius: 5px;
 }

@@ -25,17 +25,17 @@ export const AllPTORequests = () => {
         <Col>
           <Card>
             <Card.Body>
-              <Card.Title>PTO Requests</Card.Title>
-              <p>Hello {user[0]?.user?.first_name}!</p>
-              <p>You have {PTORequests.length} pending PTO Requests:</p>
+              <Card.Title className="ptoListHeader">PTO Requests</Card.Title>
+              <p><span className="ptoListName">Hello {user[0]?.user?.first_name}!</span></p>
+              <p><span className="ptoListInfo">You have {PTORequests.length} pending PTO Requests:</span></p>
               <Card.Text>
                 {PTORequests.map((PTORequest) => {
                   return (
-                    <Button
+                    <Button className="ptoListItem"
                       variant="dark"
                       onClick={() => navigate(`/ptorequests/${PTORequest.id}`)}
                     >
-                      {PTORequest.start_date} - {PTORequest.end_date}
+                      <span className="ptoListDates">From: {PTORequest.start_date} To: {PTORequest.end_date}</span>
                     </Button>
                   );
                 })}
@@ -44,10 +44,10 @@ export const AllPTORequests = () => {
           </Card>
         </Col>
       </Row>
-      <Button variant="dark" onClick={() => navigate(`/pto/create`)}>
+      <Button className="ptoListItem" variant="dark" onClick={() => navigate(`/pto/create`)}>
         Create PTO Request
       </Button>
-      <Button variant="dark" onClick={() => navigate(`/`)}>
+      <Button className="ptoListItem" variant="dark" onClick={() => navigate(`/`)}>
         Back
       </Button>
     </>
