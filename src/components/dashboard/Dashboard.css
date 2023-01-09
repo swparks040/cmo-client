@@ -1,0 +1,45 @@
+.card {
+  width: 80%;
+  margin: 0 auto;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 0 15px 4px rgba(0, 0, 0, 0.06);
+  padding : 1rem;
+}
+
+.card button {
+  width: 60%;
+  margin: 0 auto;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  box-shadow: 0 0 15px 4px rgba(0, 0, 0, 0.06);
+}
+
+h3.card-header {
+  background-color:#01295f;
+  color: white;
+}
+
+.doughnut {
+  display : flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.dashboardNumber, .ptoDaysUsed {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: red;
+}
+
+.ptoDaysRemaining {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: green;
+}
+
+.ptoTotalDays {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: black;
+}

@@ -51,6 +51,7 @@ export const AdminDashboard = () => {
               </Card.Text>
               <Button variant="dark" onClick={() => navigate(`/pto`)}>Manage PTO</Button>
               <Button variant="danger" onClick={() => navigate(`/pto/create`)}>Seed PTO</Button>
+              <Button variant="dark" onClick={() => navigate(`/ptorequests/pending`)}>Manage PTO Requests</Button>
             </Card.Body>
           </Card>
           <Card className="text-center">

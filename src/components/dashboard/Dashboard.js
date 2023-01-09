@@ -9,6 +9,8 @@ import { getFamilyMembersByCurrentUser } from "../managers/FamilyManager";
 import { getCurrentUser } from "../managers/UserManager";
 import { getMessagesByCurrentUser } from "../managers/MessageManager";
 import PTOChart from "./DoughnutChart";
+import "./Dashboard.css";
+
 
 
 export const Dashboard = () => {
@@ -47,13 +49,13 @@ export const Dashboard = () => {
     if (messages.length === 1) {
       return (
         <Card.Text>
-          You have {messages.length} conversation. View your messages.
+          You have <span className="dashboardNumber">{messages.length}</span> conversation. View your messages.
         </Card.Text>
       );
     } else {
       return (
         <Card.Text>
-          You have {messages.length} conversations. View your messages.
+          You have <span className="dashboardNumber">{messages.length}</span> conversations. View your messages.
         </Card.Text>
       );
     }
@@ -63,14 +65,14 @@ export const Dashboard = () => {
     if (familyMembers.length === 1) {
       return (
         <Card.Text>
-          You have {familyMembers.length} family member declared on your
+          You have <span className="dashboardNumber">{familyMembers.length}</span> family member declared on your
           account.
         </Card.Text>
       );
     } else {
       return (
         <Card.Text>
-          You have {familyMembers.length} family members declared on your
+          You have <span className="dashboardNumber">{familyMembers.length}</span> family members declared on your
           account.
         </Card.Text>
       );
@@ -81,13 +83,13 @@ export const Dashboard = () => {
     if (PTORequest.length === 1) {
       return (
         <Card.Text>
-          You have {PTORequest.length} PTO Request pending.
+          You have <span className="dashboardNumber">{PTORequest.length}</span> PTO Request pending.
         </Card.Text>
       );
     } else {
       return (
         <Card.Text>
-          You have {PTORequest.length} PTO Requests pending.
+          You have <span className="dashboardNumber">{PTORequest.length}</span> PTO Requests pending.
         </Card.Text>
       );
     }
@@ -103,15 +105,15 @@ export const Dashboard = () => {
             <Card.Body>
               <Card.Title>PTO Balance</Card.Title>
               <Card.Text>
-                You have {PTO[0].days_remaining} days of {PTO[0]?.total_days}{" "}
-                days of PTO remaining. You have used {PTO[0]?.days_used} days.
+                You have <span className="ptoDaysRemaining">{PTO[0].days_remaining}</span> days of <span className="ptoTotalDays">{PTO[0]?.total_days}{" "}</span>
+                days of PTO remaining. You have used <span className="ptoDaysUsed">{PTO[0]?.days_used}</span> days.
               </Card.Text>
               <Card.Text>{PTOChart()}</Card.Text>
               {PTORequestPluralization()}
-              <Button variant="dark" onClick={() => navigate(`/pto/create`)}>
+              <Button variant="success" onClick={() => navigate(`/ptorequests/create`)}>
                 Request PTO
               </Button>
-              <Button variant="dark" onClick={() => navigate(`/ptorequests`)} >PTO Requests</Button>
+              <Button variant="secondary" onClick={() => navigate(`/ptorequests`)} >My PTO Requests</Button>
             </Card.Body>
           </Card>
           <Card className="text-center">
@@ -119,7 +121,7 @@ export const Dashboard = () => {
             <Card.Body>
               <Card.Title>Family Members</Card.Title>
               {familyMemberPluralization()}
-              <Button variant="dark" onClick={() => navigate(`/familymembers`)}>
+              <Button variant="success" onClick={() => navigate(`/familymembers`)}>
                 Manage Family
               </Button>
             </Card.Body>
@@ -133,7 +135,7 @@ export const Dashboard = () => {
             <Card.Body>
               <Card.Title>Conversations</Card.Title>
               {conversationPluralization()}
-              <Button variant="dark" onClick={() => navigate(`/messages`)}>
+              <Button variant="success" onClick={() => navigate(`/messages`)}>
                 View Conversations
               </Button>
             </Card.Body>

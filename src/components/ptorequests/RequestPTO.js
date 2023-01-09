@@ -5,7 +5,7 @@ import { getCurrentUser } from "../managers/UserManager";
 import { createPTORequest } from "../managers/PTOManager";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
-
+import "./PTORequests.css";
 
 export const RequestPTO = () => {
   const navigate = useNavigate();

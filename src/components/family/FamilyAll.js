@@ -19,6 +19,20 @@ export const FamilyMemberList = () => {
     getCurrentUser().then(setUser);
   }, []);
 
+  const familyMemberPluralization = () => {
+    if (familyMembers.length === 0) {
+      return <Card.Text>You have not declared any family members.</Card.Text>;
+    } else if (familyMembers.length === 1) {
+      return (
+        <Card.Text>You have declared the following family member.</Card.Text>
+      );
+    } else {
+      return (
+        <Card.Text>You have declared the following family members.</Card.Text>
+      );
+    }
+  };
+
   return (
     <>
       <Row>
@@ -26,13 +40,14 @@ export const FamilyMemberList = () => {
           <Card>
             <Card.Body>
               <Card.Title>Declared Family Members</Card.Title>
-              <p>Hello {user[0]?.user?.first_name}!</p>
-              <p>You have declared the following family members:</p>
+              <Card.Text>Hello {user[0]?.user?.first_name}!</Card.Text>
+              {familyMemberPluralization()}
               <Card.Text>
                 {familyMembers.map((familyMember) => {
                   return (
                     <Button
-                    variant="dark" onClick={() =>
+                      variant="dark"
+                      onClick={() =>
                         navigate(`/familymembers/${familyMember.id}`)
                       }
                     >
@@ -48,7 +63,9 @@ export const FamilyMemberList = () => {
       <Button variant="dark" onClick={() => navigate(`/familymembers/create`)}>
         Declare Family
       </Button>
-      <Button variant="dark" onClick={() => navigate(`/`)}>Back</Button>
+      <Button variant="dark" onClick={() => navigate(`/`)}>
+        Back
+      </Button>
     </>
   );
 };

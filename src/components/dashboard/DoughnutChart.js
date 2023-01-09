@@ -69,7 +69,7 @@ export const PTOChart = () => {
 
   return (
     <>
-      <div>
+      <div className="doughnut">
         <Doughnut data={chartData} options={chartOptions} />
       </div>
     </>

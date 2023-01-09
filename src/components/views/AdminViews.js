@@ -9,9 +9,12 @@ import { MessageSingle } from "../messages/MessageSingle";
 import { MessageUpdate } from "../messages/MessageUpdate";
 import { CommentForm } from "../messages/CommentForm";
 import { CMOUserDetailsUpdate } from "../cmousers/CMOUserDetailsUpdate";
-// import { SeedPTO } from "../pto/SeedPTO";
+import { SeedPTO } from "../pto/SeedPTO";
 import { PTOList } from "../pto/ListPTO";
 import { PTOSingle } from "../pto/EmployeePTO";
+import { AdminPTORequestList } from "../ptorequests/AdminPTORequestList";
+import { AdminPTORequestApproval } from "../ptorequests/AdminPTORequestApproval";
+import { UpdatePTO } from "../pto/UpdatePTO";
 
 export const AdminViews = () => {
   return (
@@ -38,7 +41,10 @@ export const AdminViews = () => {
         />
         <Route path="/pto" element={<PTOList />} />
         <Route path="/pto/:ptoId" element={<PTOSingle />} />
-        {/* <Route path="/pto/create" element={<SeedPTO />} /> */}
+        <Route path="/pto/:ptoId/update" element={<UpdatePTO />} />
+        <Route path="/pto/create" element={<SeedPTO />} />
+        <Route path="/ptorequests/pending" element={<AdminPTORequestList />} />
+        <Route path="/ptorequests/pending/:PTORequestId" element={<AdminPTORequestApproval />} />
       </Routes>
     </>
   );

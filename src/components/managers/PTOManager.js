@@ -9,6 +9,17 @@ export const getAllPTO = () => {
   }).then((res) => res.json());
 };
 
+export const getPTOById = (id) => {
+  return fetch(`http://localhost:8000/pto/${id}`, {
+    headers: {
+      Authorization: `Token ${
+        JSON.parse(localStorage.getItem("auth_token")).token
+      }`,
+    },
+  }).then((res) => res.json());
+};
+
+
 export const getPTObyCurrentUser = () => {
   return fetch(`http://localhost:8000/pto?user=current`, {
     headers: {
@@ -52,7 +63,7 @@ export const updatePTO = (pto) => {
       "Content-Type": "application/json",
     },
     body: JSON.stringify(pto),
-  }).then((res) => res.json());
+  });
 };
 
 export const deletePTO = (ptoId) => {
@@ -107,7 +118,17 @@ export const getPTORequestById = (id) => {
   }).then((res) => res.json());
 };
 
-export const createPTORequest = (request) => {
+export const getPendingPTORequests = () => {
+  return fetch("http://localhost:8000/ptorequests?is_approved=False", {
+    headers: {
+      Authorization: `Token ${
+        JSON.parse(localStorage.getItem("auth_token")).token
+      }`,
+    },
+  }).then((res) => res.json());
+};
+
+export const createPTORequest = (ptoRequest) => {
   return fetch(`http://localhost:8000/ptorequests`, {
     method: "POST",
     headers: {
@@ -116,7 +137,7 @@ export const createPTORequest = (request) => {
       }`,
       "Content-Type": "application/json",
     },
-    body: JSON.stringify(request),
+    body: JSON.stringify(ptoRequest),
   }).then((res) => res.json());
 };
 
@@ -133,8 +154,8 @@ export const updatePTORequest = (ptoRequest) => {
   });
 };
 
-export const deletePTORequest = (ptorequestId) => {
-  return fetch(`http://localhost:8000/ptorequests/${ptorequestId}`, {
+export const deletePTORequest = (ptoRequestId) => {
+  return fetch(`http://localhost:8000/ptorequests/${ptoRequestId}`, {
     method: "DELETE",
     headers: {
       Authorization: `Token ${

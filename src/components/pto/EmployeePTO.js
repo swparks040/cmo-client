@@ -53,6 +53,10 @@ export const PTOSingle = () => {
               <Button variant="danger" onClick={handleClickDeletePTO}>
                 Delete PTO
               </Button>
+              <Button variant="dark" onClick={() => navigate(`/pto/${pto.id}/update`)}>
+                Update PTO
+              </Button>
+              <Button variant="dark" onClick={() => navigate(`/pto`)}>Back</Button>
             </Card.Body>
           </Card>
         </Col>
