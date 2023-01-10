@@ -44,7 +44,10 @@ export const AdminViews = () => {
         <Route path="/pto/:ptoId/update" element={<UpdatePTO />} />
         <Route path="/pto/create" element={<SeedPTO />} />
         <Route path="/ptorequests/pending" element={<AdminPTORequestList />} />
-        <Route path="/ptorequests/pending/:PTORequestId" element={<AdminPTORequestApproval />} />
+        <Route
+          path="/ptorequests/pending/:PTORequestId"
+          element={<AdminPTORequestApproval />}
+        />
       </Routes>
     </>
   );

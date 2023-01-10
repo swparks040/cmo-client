@@ -2,11 +2,9 @@ import React, { useEffect, useState } from "react";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import { useParams, useNavigate } from "react-router-dom";
-import {
-  deletePTORequest,
-  getPTORequestById
-} from "../managers/PTOManager";
+import { deletePTORequest, getPTORequestById } from "../managers/PTOManager";
 import { getCurrentUser } from "../managers/UserManager";
+import "./PTORequests.css";
 
 export const PTORequestSingle = () => {
   const navigate = useNavigate();
@@ -15,10 +13,10 @@ export const PTORequestSingle = () => {
 
   const [currentUser, setCurrentUser] = useState({});
 
-    useEffect(() => {
-        getCurrentUser(currentUser).then(setCurrentUser);
-    }, []);
-  
+  useEffect(() => {
+    getCurrentUser(currentUser).then(setCurrentUser);
+  }, []);
+
   const [PTORequest, setPTORequest] = useState({
     id: 0,
     pto: 0,
@@ -30,42 +28,50 @@ export const PTORequestSingle = () => {
     is_approved: false,
   });
 
-    useEffect(() => {
-        getPTORequestById(PTORequestId).then(setPTORequest);
-    }, [PTORequestId]);
+  useEffect(() => {
+    getPTORequestById(PTORequestId).then(setPTORequest);
+  }, [PTORequestId]);
 
   const handleClickDeletePTORequest = (event) => {
     event.preventDefault();
     deletePTORequest(PTORequest.id).then(() => {
-        navigate("/ptorequests");
+      navigate("/ptorequests");
     });
-    };
-
-    return (
-      <Card>
-        <Card.Body>
-          <Card.Title>
-            {PTORequest.start_date} - {PTORequest.end_date}
-          </Card.Title>
-          <Card.Text>
-            <Card.Text>Days Requested: {PTORequest.days_requested}</Card.Text>
-            <Card.Text>Justification: {PTORequest.justification}</Card.Text>
-            <Card.Text>Is Approved: {PTORequest.is_approved}</Card.Text>
-          </Card.Text>
-          <Button
-            variant="dark"
-            onClick={() => navigate(`/ptorequests/${PTORequest.id}/update`)}
-          >
-            Edit
-          </Button>
-          <Button variant="dark" onClick={handleClickDeletePTORequest}>
-            Delete
-          </Button>
-          <Button variant="dark" onClick={() => navigate(`/`)}>
-            Back
-          </Button>
-        </Card.Body>
-      </Card>
-    );
   };
 
+  return (
+    <Card>
+      <Card.Body>
+        <Card.Title className="ptoListHeader">
+          {PTORequest.start_date} - {PTORequest.end_date}
+        </Card.Title>
+        <Card.Text>
+          <Card.Text>
+            <span className="ptoListInfo">
+              Days Requested: {PTORequest.days_requested}
+            </span>
+          </Card.Text>
+          <Card.Text>
+            <span className="ptoListInfo">
+              Justification: {PTORequest.justification}
+            </span>
+          </Card.Text>
+        </Card.Text>
+      </Card.Body>
+      <Button
+        className="ptoListItem"
+        variant="success"
+        onClick={() => navigate(`/ptorequests/${PTORequest.id}/update`)}
+      >
+        Edit
+      </Button>
+      <Button
+        className="ptoListItem"
+        variant="danger"
+        onClick={handleClickDeletePTORequest}
+      >
+        Delete
+      </Button>
+    </Card>
+  );
+};

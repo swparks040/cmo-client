@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Button from "react-bootstrap/Button";
+import Card from "react-bootstrap/Card";
 import { useParams, useNavigate } from "react-router-dom";
 import {
   deleteFamilyMember,
@@ -55,19 +56,64 @@ export const FamilySingle = () => {
 
   return (
     <>
-      <h2>Family Member Details</h2>
-      <p>First Name: {familyMember.first_name}</p>
-      <p>Last Name: {familyMember.last_name}</p>
-      <p>Relationship: {familyMember.family_member_relationship.label}</p>
-      <p>Birthday: {familyMember.birthday}</p>
-      <p>Anniversary: {familyMember.anniversary}</p>
-      <p>Graduation: {familyMember.graduation}</p>
-      <Button
-        variant="dark" onClick={() => navigate(`/familymembers/update/${familyMember.id}`)}
-      >
-        Update
-      </Button>
-      <Button variant="dark" onClick={handleClickDeleteFamilyMember}>Delete</Button>
+      <Card>
+        <Card.Body>
+          <Card.Title className="ptoListHeader">
+            {familyMember.first_name} {familyMember.last_name}
+          </Card.Title>
+          <Card.Text>
+            <span className="ptoListName">
+              First Name: {familyMember.first_name}
+            </span>
+          </Card.Text>
+          <Card.Text>
+            <span className="ptoListName">
+              Last Name: {familyMember.last_name}
+            </span>
+          </Card.Text>
+          <Card.Text>
+            <span className="ptoListName">
+              Relationship: {familyMember.family_member_relationship.label}
+            </span>
+          </Card.Text>
+          <Card.Text>
+            <span className="ptoListName">
+              Birthday: {familyMember.birthday}
+            </span>
+          </Card.Text>
+          <Card.Text>
+            <span className="ptoListName">
+              Anniversary: {familyMember.anniversary}
+            </span>
+          </Card.Text>
+          <Card.Text>
+            <span className="ptoListName">
+              Graduation: {familyMember.graduation}
+            </span>
+          </Card.Text>
+        </Card.Body>
+        <Button
+          className="ptoListItem"
+          variant="success"
+          onClick={() => navigate(`/familymembers/update/${familyMember.id}`)}
+        >
+          Update
+        </Button>
+        <Button
+          className="ptoListItem"
+          variant="danger"
+          onClick={handleClickDeleteFamilyMember}
+        >
+          Delete
+        </Button>
+        <Button
+          className="ptoListItem"
+          variant="secondary"
+          onClick={() => navigate(`/familymembers`)}
+        >
+          Back
+        </Button>
+      </Card>
     </>
   );
 };

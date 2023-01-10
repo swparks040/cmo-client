@@ -25,26 +25,43 @@ export const AllMessagesAdmin = () => {
         <Col>
           <Card>
             <Card.Body>
-              <Card.Title>Messages</Card.Title>
-              <p>Hello {user[0]?.user?.first_name}!</p>
-              <p>You have the following messages:</p>
+              <Card.Title className="ptoListHeader">Messages</Card.Title>
+              <p>
+                <span className="ptoListName">
+                  Hello {user[0]?.user?.first_name}!
+                </span>
+              </p>
+              <p>
+                <span className="ptoListInfo">
+                  You have the following messages:
+                </span>
+              </p>
               <Card.Text>
                 {messages.map((message) => {
                   return (
-                    <Button variant="dark" onClick={() => navigate(`/messages/${message.id}`)}>
+                    <Button
+                      className="ptoListItem"
+                      variant="dark"
+                      onClick={() => navigate(`/messages/${message.id}`)}
+                    >
                       {message.title}
                     </Button>
                   );
                 })}
               </Card.Text>
             </Card.Body>
+            <Button
+              variant="success"
+              onClick={() => navigate(`/messages/create`)}
+            >
+              Create Message
+            </Button>
+            <Button variant="secondary" onClick={() => navigate(`/`)}>
+              Back
+            </Button>
           </Card>
         </Col>
       </Row>
-      <Button variant="dark" onClick={() => navigate(`/messages/create`)}>
-        Create Message
-      </Button>
-      <Button variant="dark" onClick={() => navigate(`/`)}>Back</Button>
     </>
   );
 };

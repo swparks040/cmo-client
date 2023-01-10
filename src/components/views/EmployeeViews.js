@@ -43,8 +43,14 @@ export const EmployeeViews = () => {
           element={<FamilyUpdate />}
         />
         <Route path="/ptorequests" element={<AllPTORequests />} />
-        <Route path="/ptorequests/:PTORequestId" element={<PTORequestSingle />} />
-        <Route path="/ptorequests/:PTORequestId/update" element={<PTORequestUpdate />} />
+        <Route
+          path="/ptorequests/:PTORequestId"
+          element={<PTORequestSingle />}
+        />
+        <Route
+          path="/ptorequests/:PTORequestId/update"
+          element={<PTORequestUpdate />}
+        />
         <Route path="/ptorequests/create" element={<RequestPTO />} />
       </Routes>
     </>

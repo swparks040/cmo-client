@@ -19,7 +19,6 @@ export const getPTOById = (id) => {
   }).then((res) => res.json());
 };
 
-
 export const getPTObyCurrentUser = () => {
   return fetch(`http://localhost:8000/pto?user=current`, {
     headers: {

@@ -8,6 +8,9 @@ import {
 import { getCurrentUser } from "../managers/UserManager";
 import Button from "react-bootstrap/Button";
 import { MessageComments } from "./MessageComments";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+import Card from "react-bootstrap/Card";
 
 export const MessageSingle = () => {
   const navigate = useNavigate();
@@ -53,19 +56,53 @@ export const MessageSingle = () => {
 
   return (
     <>
-      <h2>Message Details</h2>
-      <p>Title: {message.title}</p>
-      <p>Category: {message.category.label}</p>
-      <p>Publication Date: {message.publication_date}</p>
-      <p>Content: {message.content}</p>
-      <Button variant="dark" onClick={() => navigate(`/messages/update/${message.id}`)}>
-        Update Message
-      </Button>
-      <Button variant="dark" onClick={handleClickDeleteMessage}>
-        Delete Message
-      </Button>
-      <Button variant="dark" onClick={() => navigate(`/messages`)}>Back</Button>
-      <MessageComments />
+      <Row>
+        <Col>
+          <Card>
+            <Card.Body>
+              <Card.Title className="ptoListHeader">Message Details</Card.Title>
+              <Card.Text>
+                <Card.Text>
+                  <span className="ptoListInfo">Title: {message.title}</span>
+                </Card.Text>
+                <Card.Text>
+                  <span className="ptoListInfo">
+                    Publication Date: {message.publication_date}
+                  </span>
+                </Card.Text>
+                <Card.Text>
+                  <span className="ptoListInfo">
+                    Category: {message.category.label}
+                  </span>
+                </Card.Text>
+                <Card.Text>
+                  <span className="ptoListInfo">
+                    Content: {message.content}
+                  </span>
+                </Card.Text>
+              </Card.Text>
+            </Card.Body>
+            <Button
+              className="ptoListItem"
+              variant="success"
+              onClick={() => navigate(`/messages/update/${message.id}`)}
+            >
+              Update Message
+            </Button>
+            <Button
+              className="ptoListItem"
+              variant="danger"
+              onClick={handleClickDeleteMessage}
+            >
+              Delete Message
+            </Button>
+            <Button variant="secondary" onClick={() => navigate(`/messages`)}>
+              Back
+            </Button>
+            <MessageComments />
+          </Card>
+        </Col>
+      </Row>
     </>
   );
 };

@@ -5,7 +5,6 @@ import Button from "react-bootstrap/Button";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import {
-  getAllUsers,
   getAllSubordinateUsers,
   getAllAdminUsers,
 } from "../managers/UserManager";
@@ -31,11 +30,12 @@ export const PTOList = () => {
         <Col>
           <Card>
             <Card.Body>
-              <Card.Title>Admin</Card.Title>
+              <Card.Title className="ptoListHeader">Admin</Card.Title>
               <Card.Text>
                 {adminUsers.map((adminUser) => {
                   return (
                     <Button
+                      className="ptoListItem"
                       variant="dark"
                       onClick={() => navigate(`/pto/${adminUser.id}`)}
                     >
@@ -52,11 +52,12 @@ export const PTOList = () => {
         <Col>
           <Card>
             <Card.Body>
-              <Card.Title>Employees</Card.Title>
+              <Card.Title className="ptoListHeader">Employees</Card.Title>
               <Card.Text>
                 {subordinateUsers.map((subordinateUser) => {
                   return (
                     <Button
+                      className="ptoListItem"
                       variant="dark"
                       onClick={() => navigate(`/pto/${subordinateUser.id}`)}
                     >
@@ -67,11 +68,17 @@ export const PTOList = () => {
               </Card.Text>
             </Card.Body>
           </Card>
+          <Card>
+            <Button
+              className="ptoListItem"
+              variant="secondary"
+              onClick={() => navigate(`/`)}
+            >
+              Back
+            </Button>
+          </Card>
         </Col>
       </Row>
-      <Button variant="dark" onClick={() => navigate(`/`)}>
-        Back
-      </Button>
     </>
   );
 };

@@ -5,6 +5,8 @@ import { getFamilyMembersByCurrentUser } from "../managers/FamilyManager";
 import { getAllFamilyMemberRelationships } from "../managers/FamilyManager";
 import { updateFamilyMember } from "../managers/FamilyManager";
 import Button from "react-bootstrap/Button";
+import Form from "react-bootstrap/Form";
+import Card from "react-bootstrap/Card";
 
 export const FamilyUpdate = () => {
   const { familyMemberId } = useParams();
@@ -73,12 +75,15 @@ export const FamilyUpdate = () => {
 
   return (
     <>
-      <form className="familyMemberForm">
-        <h2 className="familyMemberForm__title">Update Family Member</h2>
-        <fieldset>
-          <div className="form-group">
-            <label htmlFor="family_member_relationship">Relationship: </label>
-            <select
+      <Card>
+        <Card.Title className="ptoListHeader">
+          {familyMember.first_name} {familyMember.last_name}
+        </Card.Title>
+        <Form>
+          <Form.Group>
+            <Form.Label>Relationship</Form.Label>
+            <Form.Control
+              as="select"
               value={familyMember.family_member_relationship}
               name="family_member_relationship"
               id="family_member_relationship"
@@ -91,15 +96,14 @@ export const FamilyUpdate = () => {
                   {fmr.label}
                 </option>
               ))}
-            </select>
-          </div>
-        </fieldset>
-        <fieldset>
-          <div className="form-group">
-            <label htmlFor="first_name">First Name: </label>
-            <input
-              type="text"
+            </Form.Control>
+          </Form.Group>
+
+          <Form.Group controlId="first_name">
+            <Form.Label>First Name</Form.Label>
+            <Form.Control
               id="first_name"
+              type="text"
               onChange={changeFamilyMemberState}
               required
               autoFocus
@@ -107,14 +111,13 @@ export const FamilyUpdate = () => {
               placeholder="First Name"
               value={familyMember.first_name}
             />
-          </div>
-        </fieldset>
-        <fieldset>
-          <div className="form-group">
-            <label htmlFor="last_name">Last Name: </label>
-            <input
-              type="text"
+          </Form.Group>
+
+          <Form.Group controlId="last_name">
+            <Form.Label>Last Name</Form.Label>
+            <Form.Control
               id="last_name"
+              type="text"
               onChange={changeFamilyMemberState}
               required
               autoFocus
@@ -122,14 +125,13 @@ export const FamilyUpdate = () => {
               placeholder="Last Name"
               value={familyMember.last_name}
             />
-          </div>
-        </fieldset>
-        <fieldset>
-          <div className="form-group">
-            <label htmlFor="birthday">Birthday: </label>
-            <input
-              type="date"
+          </Form.Group>
+
+          <Form.Group controlId="birthday">
+            <Form.Label>Birthday</Form.Label>
+            <Form.Control
               id="birthday"
+              type="date"
               onChange={changeFamilyMemberState}
               required
               autoFocus
@@ -137,14 +139,13 @@ export const FamilyUpdate = () => {
               placeholder="Birthday"
               value={familyMember.birthday}
             />
-          </div>
-        </fieldset>
-        <fieldset>
-          <div className="form-group">
-            <label htmlFor="anniversary">Anniversary: </label>
-            <input
-              type="date"
+          </Form.Group>
+
+          <Form.Group controlId="anniversary">
+            <Form.Label>Anniversary</Form.Label>
+            <Form.Control
               id="anniversary"
+              type="date"
               onChange={changeFamilyMemberState}
               required
               autoFocus
@@ -152,14 +153,13 @@ export const FamilyUpdate = () => {
               placeholder="Anniversary"
               value={familyMember.anniversary}
             />
-          </div>
-        </fieldset>
-        <fieldset>
-          <div className="form-group">
-            <label htmlFor="graduation">Graduation: </label>
-            <input
-              type="date"
+          </Form.Group>
+
+          <Form.Group controlId="graduation">
+            <Form.Label>Graduation</Form.Label>
+            <Form.Control
               id="graduation"
+              type="date"
               onChange={changeFamilyMemberState}
               required
               autoFocus
@@ -167,15 +167,23 @@ export const FamilyUpdate = () => {
               placeholder="Graduation"
               value={familyMember.graduation}
             />
-          </div>
-        </fieldset>
-        <Button variant="dark"
-          className="btn btn-primary"
+          </Form.Group>
+        </Form>
+        <Button
+          className="ptoListItem"
+          variant="success"
           onClick={handleClickSaveFamilyMember}
         >
           Save Family Member
         </Button>
-      </form>
+        <Button
+          className="ptoListItem"
+          variant="secondary"
+          onClick={() => navigate(`/familymembers/${familyMember.id}`)}
+        >
+          Back
+        </Button>
+      </Card>
     </>
   );
 };

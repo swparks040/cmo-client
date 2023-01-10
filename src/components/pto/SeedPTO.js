@@ -4,7 +4,7 @@ import { seedPTO } from "../managers/PTOManager";
 import { getAllUsers } from "../managers/UserManager";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
-
+import Card from "react-bootstrap/Card";
 
 export const SeedPTO = () => {
   const navigate = useNavigate();
@@ -47,62 +47,77 @@ export const SeedPTO = () => {
 
   return (
     <>
-      <Form>
-        <Form.Group>
-          <Form.Label htmlFor="cmouser_id">Employees</Form.Label>
-          <Form.Control
-            as="select"
-            id="cmouser"
-            value={cmouserPTO.cmouser}
-            required
-            autoFocus
-            onChange={changeCmouserPTOState}
-          >
-            <option value="0">Select an Employee</option>
-            {cmousers.map((cmouser) => (
-              <option key={cmouser.id} value={cmouser.id}>
-                {cmouser.full_name}
-              </option>
-            ))}
-          </Form.Control>
-        </Form.Group>
-        <Form.Group>
-          <Form.Label htmlFor="total_days">Total Days</Form.Label>
-          <Form.Control
-            type="number"
-            id="total_days"
-            value={cmouserPTO.total_days}
-            required
-            autoFocus
-            onChange={changeCmouserPTOState}
-          />
-        </Form.Group>
-        <Form.Group>
-          <Form.Label htmlFor="days_used">Days Used</Form.Label>
-          <Form.Control
-            type="number"
-            id="days_used"
-            value={cmouserPTO.days_used}
-            required
-            autoFocus
-            onChange={changeCmouserPTOState}
-          />
-        </Form.Group>
-        <Form.Group>
-          <Form.Label htmlFor="days_remaining">Days Remaining</Form.Label>
-          <Form.Control
-            type="number"
-            id="days_remaining"
-            value={cmouserPTO.days_remaining}
-            required
-            autoFocus
-            onChange={changeCmouserPTOState}
-          />
-        </Form.Group>
-        <Button type="submit" onClick={handleClickSaveCMOuserPTO}>
+      <Card>
+        <Card.Title className="ptoListHeader">Seed PTO</Card.Title>
+        <Form>
+          <Form.Group>
+            <Form.Label htmlFor="cmouser_id">Employees</Form.Label>
+            <Form.Control
+              as="select"
+              id="cmouser"
+              value={cmouserPTO.cmouser}
+              required
+              autoFocus
+              onChange={changeCmouserPTOState}
+            >
+              <option value="0">Select an Employee</option>
+              {cmousers.map((cmouser) => (
+                <option key={cmouser.id} value={cmouser.id}>
+                  {cmouser.full_name}
+                </option>
+              ))}
+            </Form.Control>
+          </Form.Group>
+          <Form.Group>
+            <Form.Label htmlFor="total_days">Total Days</Form.Label>
+            <Form.Control
+              type="number"
+              id="total_days"
+              value={cmouserPTO.total_days}
+              required
+              autoFocus
+              onChange={changeCmouserPTOState}
+            />
+          </Form.Group>
+          <Form.Group>
+            <Form.Label htmlFor="days_used">Days Used</Form.Label>
+            <Form.Control
+              type="number"
+              id="days_used"
+              value={cmouserPTO.days_used}
+              required
+              autoFocus
+              onChange={changeCmouserPTOState}
+            />
+          </Form.Group>
+          <Form.Group>
+            <Form.Label htmlFor="days_remaining">Days Remaining</Form.Label>
+            <Form.Control
+              type="number"
+              id="days_remaining"
+              value={cmouserPTO.days_remaining}
+              required
+              autoFocus
+              onChange={changeCmouserPTOState}
+            />
+          </Form.Group>
+        </Form>
+        <Button
+          className="ptoListItem"
+          variant="success"
+          type="submit"
+          onClick={handleClickSaveCMOuserPTO}
+        >
           Save
         </Button>
-      </Form>
+        <Button
+          className="ptoListItem"
+          variant="secondary"
+          onClick={() => navigate(`/`)}
+        >
+          Back
+        </Button>
+      </Card>
     </>
   );
 };

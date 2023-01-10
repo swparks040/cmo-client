@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { getAllCategories } from "../managers/CategoryManager";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
+import Card from "react-bootstrap/Card";
 import { addMessage } from "../managers/MessageManager";
 import { useNavigate } from "react-router-dom";
 import { getCurrentUser } from "../managers/UserManager";
@@ -52,52 +53,67 @@ export const MessageForm = () => {
 
   return (
     <>
-      <Form>
-        <Form.Group>
-          <Form.Label htmlFor="category_id">Category</Form.Label>
-          <Form.Control
-            as="select"
-            id="category"
-            value={message.category}
-            required
-            autoFocus
-            onChange={changeMessageState}
-          >
-            <option value={0}>Select a category</option>
-            {categories.map((category) => (
-              <option key={category.id} value={category.id}>
-                {category.label}
-              </option>
-            ))}
-          </Form.Control>
-        </Form.Group>
-        <Form.Group>
-          <Form.Label htmlFor="title">Subject</Form.Label>
-          <Form.Control
-            type="text"
-            id="title"
-            required
-            autoFocus
-            placeholder="Summary"
-            value={message.title}
-            onChange={changeMessageState}
-          />
-        </Form.Group>
-        <Form.Group>
-          <Form.Label htmlFor="content">Content</Form.Label>
-          <Form.Control
-            as="textarea"
-            id="content"
-            required
-            autoFocus
-            placeholder="Provide details and/or justification"
-            value={message.content}
-            onChange={changeMessageState}
-          />
-        </Form.Group>
-        <Button variant="dark" onClick={handleClickSaveMessage}>Save Message</Button>
-        <Button variant="dark" onClick={() => navigate(`/messages`)}>Back</Button>
-      </Form>
+      <Card>
+        <Card.Title className="ptoListHeader">Create Message</Card.Title>
+        <Form>
+          <Form.Group>
+            <Form.Label htmlFor="category_id">Category</Form.Label>
+            <Form.Control
+              as="select"
+              id="category"
+              value={message.category}
+              required
+              autoFocus
+              onChange={changeMessageState}
+            >
+              <option value={0}>Select a category</option>
+              {categories.map((category) => (
+                <option key={category.id} value={category.id}>
+                  {category.label}
+                </option>
+              ))}
+            </Form.Control>
+          </Form.Group>
+          <Form.Group>
+            <Form.Label htmlFor="title">Subject</Form.Label>
+            <Form.Control
+              type="text"
+              id="title"
+              required
+              autoFocus
+              placeholder="Summary"
+              value={message.title}
+              onChange={changeMessageState}
+            />
+          </Form.Group>
+          <Form.Group>
+            <Form.Label htmlFor="content">Content</Form.Label>
+            <Form.Control
+              as="textarea"
+              id="content"
+              required
+              autoFocus
+              placeholder="Provide details and/or justification"
+              value={message.content}
+              onChange={changeMessageState}
+            />
+          </Form.Group>
+        </Form>
+        <Button
+          className="ptoListItem"
+          variant="success"
+          onClick={handleClickSaveMessage}
+        >
+          Save Message
+        </Button>
+        <Button
+          className="ptoListItem"
+          variant="secondary"
+          onClick={() => navigate(`/messages`)}
+        >
+          Back
+        </Button>
+      </Card>
     </>
   );
 };

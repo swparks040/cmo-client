@@ -39,7 +39,7 @@ export const CMOUserDetails = () => {
       graduation: "",
     },
   ]);
- 
+
   useEffect(() => {
     getUserById(userId).then(setUser);
   }, []);
@@ -59,27 +59,73 @@ export const CMOUserDetails = () => {
         <Col>
           <Card>
             <Card.Body>
-              <Card.Title>{user.full_name}</Card.Title>
-              <Card.Text>Username: {user?.user?.username}</Card.Text>
-              <Card.Text>Email: {user?.user?.email}</Card.Text>
-              <Card.Text>Salary: {user.salary}</Card.Text>
-              <Card.Text>Job Position: {user.job_position}</Card.Text>
-              <Card.Text>Birthday: {user.birthday}</Card.Text>
-              <Card.Text>Date Hired: {user.date_hired}</Card.Text>
-              <Card.Text>Date Evaluated: {user.date_evaluated}</Card.Text>
-              <Card.Text>Date Promoted: {user.date_promoted}</Card.Text>
+              <Card.Title className="ptoListHeader">
+                {user.full_name}
+              </Card.Title>
               <Card.Text>
-                Number of Family Members: {familyMembers?.length}
+                <span className="ptoListName">
+                  Username: {user?.user?.username}
+                </span>
+              </Card.Text>
+              <Card.Text>
+                <span className="ptoListName">Email: {user?.user?.email}</span>
+              </Card.Text>
+              <Card.Text>
+                <span className="ptoListName">Salary: {user.salary}</span>
+              </Card.Text>
+              <Card.Text>
+                <span className="ptoListName">
+                  Job Position: {user.job_position}
+                </span>
+              </Card.Text>
+              <Card.Text>
+                <span className="ptoListName">Birthday: {user.birthday}</span>
+              </Card.Text>
+              <Card.Text>
+                <span className="ptoListName">
+                  Date Hired: {user.date_hired}
+                </span>
+              </Card.Text>
+              <Card.Text>
+                <span className="ptoListName">
+                  Date Evaluated: {user.date_evaluated}
+                </span>
+              </Card.Text>
+              <Card.Text>
+                <span className="ptoListName">
+                  Date Promoted: {user.date_promoted}
+                </span>
+              </Card.Text>
+              <Card.Text>
+                <span className="ptoListName">
+                  Number of Family Members: {familyMembers?.length}
+                </span>
               </Card.Text>
             </Card.Body>
+            <Button
+              className="ptoListItem"
+              variant="secondary"
+              onClick={() => navigate(`/cmousers/${user.id}/update`)}
+            >
+              Edit
+            </Button>
+            <Button
+              className="ptoListItem"
+              variant="danger"
+              onClick={handleClickDeleteUser}
+            >
+              Delete
+            </Button>
+            <Button
+              className="ptoListItem"
+              variant="secondary"
+              onClick={() => navigate(`/cmousers`)}
+            >
+              Back
+            </Button>
           </Card>
         </Col>
       </Row>
-      <Button variant="dark" onClick={() => navigate(`/cmousers`)}>Back</Button>
-      <Button variant="dark" onClick={() => navigate(`/cmousers/${user.id}/update`)}>
-        Edit
-      </Button>
-      <Button variant="dark" onClick={handleClickDeleteUser}>Delete</Button>
     </>
   );
 };

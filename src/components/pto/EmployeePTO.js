@@ -1,22 +1,13 @@
 import React, { useEffect, useState } from "react";
 import Button from "react-bootstrap/Button";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
 import Card from "react-bootstrap/Card";
 import { useParams, useNavigate } from "react-router-dom";
 import { deletePTO, getPTObyUserId } from "../managers/PTOManager";
-import { getCurrentUser } from "../managers/UserManager";
 
 export const PTOSingle = () => {
   const navigate = useNavigate();
 
   const { ptoId } = useParams();
-
-  const [currentUser, setCurrentUser] = useState({});
-
-  useEffect(() => {
-    getCurrentUser().then(setCurrentUser);
-  }, []);
 
   const [pto, setPTO] = useState({
     cmouser: 0,
@@ -41,26 +32,43 @@ export const PTOSingle = () => {
 
   return (
     <>
-      <Row>
-        <Col>
-          <Card>
-            <Card.Body>
-              <Card.Title>PTO Details</Card.Title>
-              <Card.Text>Total Days: {pto.total_days}</Card.Text>
-              <Card.Text>Days Used: {pto.days_used}</Card.Text>
-              <Card.Text>Days Remaining: {pto.days_remaining}</Card.Text>
-              
-              <Button variant="danger" onClick={handleClickDeletePTO}>
-                Delete PTO
-              </Button>
-              <Button variant="dark" onClick={() => navigate(`/pto/${pto.id}/update`)}>
-                Update PTO
-              </Button>
-              <Button variant="dark" onClick={() => navigate(`/pto`)}>Back</Button>
-            </Card.Body>
-          </Card>
-        </Col>
-      </Row>
+      <Card>
+        <Card.Body>
+          <Card.Title className="ptoListHeader">PTO Details</Card.Title>
+          <Card.Text>
+            <span className="ptoListName">Total Days: {pto.total_days}</span>
+          </Card.Text>
+          <Card.Text>
+            <span className="ptoListName">Days Used: {pto.days_used}</span>
+          </Card.Text>
+          <Card.Text>
+            <span className="ptoListName">
+              Days Remaining: {pto.days_remaining}
+            </span>
+          </Card.Text>
+        </Card.Body>
+        <Button
+          className="ptoListItem"
+          variant="success"
+          onClick={() => navigate(`/pto/${pto.id}/update`)}
+        >
+          Update PTO
+        </Button>
+        <Button
+          className="ptoListItem"
+          variant="danger"
+          onClick={handleClickDeletePTO}
+        >
+          Delete PTO
+        </Button>
+        <Button
+          className="ptoListItem"
+          variant="secondary"
+          onClick={() => navigate(`/pto`)}
+        >
+          Back
+        </Button>
+      </Card>
     </>
   );
 };

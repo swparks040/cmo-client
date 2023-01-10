@@ -41,6 +41,7 @@
   width: 80%;
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 
 .ptoListDates {
@@ -52,10 +53,32 @@
 .ptoListHeader {
   height: 4rem;
   text-align: center;
-  font-size: 2rem;
+  align-items: center;
+  font-size: 1.75rem;
   background-color: #01295f;
   color: white;
   display: flex;
   justify-content: center;
   border-radius: 5px;
+}
+
+.commentFormat {
+  font-size: 0.9rem;
+  color: black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.comment {
+  border: 1px solid rgb(110, 117, 125);
+  border-radius: 5px;
+}
+
+.card {
+  width: 80%;
+  margin: 0 auto;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 0 15px 4px rgba(0, 0, 0, 0.06);
+  padding: 1rem;
 }

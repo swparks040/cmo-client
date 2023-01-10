@@ -110,11 +110,7 @@ export const MessageUpdate = () => {
             onChange={changeMessageState}
           />
         </Form.Group>
-        <Button
-          variant="dark"
-          type="submit"
-          onClick={handleClickSaveMessage}
-        >
+        <Button variant="dark" type="submit" onClick={handleClickSaveMessage}>
           Save Message
         </Button>
       </Form>

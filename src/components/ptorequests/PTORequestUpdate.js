@@ -3,10 +3,12 @@ import { useNavigate, useParams } from "react-router-dom";
 import { getCurrentUser } from "../managers/UserManager";
 import {
   getPTORequestById,
-  updatePTORequest, getAllPTO
+  updatePTORequest,
+  getAllPTO,
 } from "../managers/PTOManager";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
+import Card from "react-bootstrap/Card";
 
 export const PTORequestUpdate = () => {
   const { PTORequestId } = useParams();
@@ -18,9 +20,9 @@ export const PTORequestUpdate = () => {
 
   const navigate = useNavigate();
   const [pto, setPTO] = useState({});
-    useEffect(() => {
-        getAllPTO().then((data) => setPTO(data));
-    }, []);
+  useEffect(() => {
+    getAllPTO(pto).then((data) => setPTO(data));
+  }, []);
 
   const [PTORequest, setPTORequest] = useState({
     pto: 0,
@@ -34,8 +36,7 @@ export const PTORequestUpdate = () => {
 
   useEffect(() => {
     getPTORequestById(PTORequestId).then(setPTORequest);
-    }, [PTORequestId]);
-
+  }, [PTORequestId]);
 
   const handleClickSavePTORequest = (event) => {
     event.preventDefault();
@@ -52,15 +53,16 @@ export const PTORequestUpdate = () => {
     updatePTORequest(updatedPTORequest).then(() => navigate("/ptorequests"));
   };
 
-    const changePTORequestState = (event) => {
-        const newPTORequestState = { ...PTORequest };
-        newPTORequestState[event.target.id] = event.target.value;
-        setPTORequest(newPTORequestState);
-    };
-        
+  const changePTORequestState = (event) => {
+    const newPTORequestState = { ...PTORequest };
+    newPTORequestState[event.target.id] = event.target.value;
+    setPTORequest(newPTORequestState);
+  };
 
-    return (
-      <>
+  return (
+    <>
+      <Card>
+        <Card.Title className="ptoListHeader">Update PTO Request</Card.Title>
         <Form className="PTORequestForm">
           <Form.Group>
             <Form.Label htmlFor="start_date">Start Date</Form.Label>
@@ -106,14 +108,23 @@ export const PTORequestUpdate = () => {
               onChange={changePTORequestState}
             />
           </Form.Group>
-          <Button
-            className="btn btn-primary"
-            onClick={handleClickSavePTORequest}
-          >
-            Save PTO Request
-          </Button>
         </Form>
-      </>
-    );
-  };
+        <Button
+          className="ptoRequestSubmit"
+          variant="success"
+          onClick={handleClickSavePTORequest}
+        >
+          Save PTO Request
+        </Button>
+        <Button
+          className="ptoListItem"
+          variant="secondary"
+          onClick={() => navigate(`/`)}
+        >
+          Back
+        </Button>
+      </Card>
+    </>
+  );
+};
 export default PTORequestUpdate;

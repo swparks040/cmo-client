@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useParams, Link, useNavigate } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { getCurrentUser } from "../managers/UserManager";
 import { getMessageById } from "../managers/MessageManager";
 import { addComment } from "../managers/CommentManager";
@@ -54,26 +54,34 @@ export const CommentForm = () => {
   return (
     <>
       <Card>
-        <Card.Body>
-          <Form>
-            <Form.Group>
-              <Form.Label htmlFor="content">Comment</Form.Label>
-              <Form.Control
-                as="textarea"
-                id="content"
-                required
-                autoFocus
-                placeholder="Provide a comment to the message."
-                value={newComment.content}
-                onChange={changeMessageState}
-              />
-            </Form.Group>
-            <Button variant="dark" onClick={handleClickSaveComment}>
-              Leave Comment
-            </Button>
-            <Link to={`/messages/${messageId}`}><Button>Return to Message</Button></Link>
-          </Form>
-        </Card.Body>
+        <Card.Title className="ptoListHeader">Add Comment</Card.Title>
+        <Form>
+          <Form.Group>
+            <Form.Control
+              as="textarea"
+              id="content"
+              required
+              autoFocus
+              placeholder="Provide a comment to the message."
+              value={newComment.content}
+              onChange={changeMessageState}
+            />
+          </Form.Group>
+        </Form>
+        <Button
+          className="ptoListItem"
+          variant="success"
+          onClick={handleClickSaveComment}
+        >
+          Add Comment
+        </Button>
+        <Button
+          className="ptoListItem"
+          variant="secondary"
+          onClick={() => navigate(`/messages/${messageId}`)}
+        >
+          Return to Message
+        </Button>
       </Card>
     </>
   );

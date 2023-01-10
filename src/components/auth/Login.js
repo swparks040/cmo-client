@@ -42,17 +42,15 @@ export const Login = ({ setToken }) => {
           We'll never share your email with anyone else.
         </Form.Text>
       </Form.Group>
-
       <Form.Group className="mb-3" controlId="formBasicPassword">
         <Form.Label>Password</Form.Label>
         <Form.Control type="password" placeholder="Password" ref={password} />
       </Form.Group>
-
-      <Button variant="primary" to="/register">
-        Cancel
-      </Button>
       <Button variant="primary" type="submit">
         Log In
+      </Button>
+      <Button variant="primary" to="/register">
+        Cancel
       </Button>
       {isUnsuccessful ? (
         <p className="help is-danger">Username or password not valid</p>

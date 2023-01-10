@@ -30,12 +30,14 @@ export const CMOUsersList = () => {
         <Col>
           <Card>
             <Card.Body>
-              <Card.Title>Admin</Card.Title>
+              <Card.Title className="ptoListHeader">Admin</Card.Title>
               <Card.Text>
                 {adminUsers.map((adminUser) => {
                   return (
                     <Link to={`/cmousers/${adminUser.id}`}>
-                      <Button variant="dark">{adminUser.full_name}</Button>
+                      <Button className="ptoListItem" variant="dark">
+                        {adminUser.full_name}
+                      </Button>
                     </Link>
                   );
                 })}
@@ -48,21 +50,31 @@ export const CMOUsersList = () => {
         <Col>
           <Card>
             <Card.Body>
-              <Card.Title>Employees</Card.Title>
+              <Card.Title className="ptoListHeader">Employees</Card.Title>
               <Card.Text>
                 {subordinateUsers.map((subordinateUser) => {
                   return (
                     <Link to={`/cmousers/${subordinateUser.id}`}>
-                      <Button variant="dark">{subordinateUser.full_name}</Button>
+                      <Button className="ptoListItem" variant="dark">
+                        {subordinateUser.full_name}
+                      </Button>
                     </Link>
                   );
                 })}
               </Card.Text>
             </Card.Body>
           </Card>
+          <Card>
+            <Button
+              className="ptoListItem"
+              variant="secondary"
+              onClick={() => navigate(`/`)}
+            >
+              Back
+            </Button>
+          </Card>
         </Col>
       </Row>
-      <Button variant="dark" onClick={() => navigate(`/`)}>Back</Button>
     </>
   );
 };
