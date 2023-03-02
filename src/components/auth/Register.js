@@ -5,7 +5,6 @@ import Col from "react-bootstrap/Col";
 import Card from "react-bootstrap/Card";
 import Form from "react-bootstrap/Form";
 import { useRef } from "react";
-//import { Link } from "react-router-dom"
 import { Link, useNavigate } from "react-router-dom";
 import { registerUser } from "../managers/AuthManager";
 
